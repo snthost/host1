@@ -1941,7 +1941,7 @@ emailval = /\w+@\w+\.+[a-z]/;
  
 if(data.firstname === "" || data.lastname === "" || data.address === "" || data.email === "" || 
    data.phone === "" || data.comments === "" ){
-                              alert("Todos los campos deben llenarse");
+                              alert("Errores de datos o Campos vacios.");
                                  return false;
                           }
 else if(data.firstname.length>20){
