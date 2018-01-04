@@ -70,7 +70,7 @@ function calcular(){
     var resultado=eval(document.fo.valores.value);
 
     if(resultado=="Infinity"){
-        document.fo.valores.value="No se puede dividir entre cero";
+        document.fo.valores.value="Error de Divicion";
     }else{
         document.fo.valores.value=resultado;
     }
