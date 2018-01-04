@@ -83,7 +83,7 @@
 					shippingTotalRate		: 0,
 					shippingCustom		: null,
 
-					taxRate				: 0.001,
+					taxRate				: 0,
 					
 					taxShipping			: false,
 
