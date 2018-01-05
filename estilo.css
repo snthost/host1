@@ -1,9 +1,7 @@
-/* Variable definitions
-   ====================
+
  <Variable name="link.color" description="Link Color" type="color" default="#3d85c6" 		   value="#3d85c6"/>
  <Variable name="link.visited.color" description="Visited Color" type="color" default="#3d85c6" value="#3d85c6"/>
  <Variable name="footer.text.color" description="Text Color" type="color" default="$(body.text.color)" value="#3d85c6"/>
-*/
 /* Content
 ----------------------------------------------- */
 /*colores-dER%%###############
