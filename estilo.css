@@ -1,7 +1,25 @@
 
+/* Variable definitions
+   ====================
  <Variable name="link.color" description="Link Color" type="color" default="#3d85c6" 		   value="#3d85c6"/>
  <Variable name="link.visited.color" description="Visited Color" type="color" default="#3d85c6" value="#3d85c6"/>
  <Variable name="footer.text.color" description="Text Color" type="color" default="$(body.text.color)" value="#3d85c6"/>
+*/
+/* Content
+----------------------------------------------- */
+/*colores-dER%%###############
+##############################
+colores_sugeridos-------l?####
+#0c4215 verde-claro-----m?####
+#011304 verde-oscuro---ml?####
+#1c2a61 azul-claro------j?####
+#030d19 azul-oscuro-----v?####
+#595959 gris-claro------s?####
+#171717 gris-oscuro-----d?####
+#1c0303 rojo-oscuro-----l?####
+#272604 amarillo-oscuro-m?####
+##############################
+*/
 /* Content
 ----------------------------------------------- */
 /*colores-dER%%###############
