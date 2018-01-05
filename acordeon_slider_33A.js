@@ -1,18 +1,1 @@
-$('document').ready( function(){/*###########ACORDEION-DE-PRECIOS############*/
-	$('dt').click('mouseenter', function(){
-		$(this)
-			.next()
-			.slideDown()
-			.siblings('dd')
-			.slideUp();
-		});	
-	});
-$('document').ready( function(){/*###########ACORDEION-DE-FOTOS############*/
-	$('dta').click('mouseenter', function(){
-		$(this)
-			.next()
-			.slideDown()
-			.siblings('dda')
-			.slideUp();
-		});	
-	});
+$("document").ready(function(){$("dt").click("mouseenter",function(){$(this).next().slideDown().siblings("dd").slideUp()})}),$("document").ready(function(){$("dta").click("mouseenter",function(){$(this).next().slideDown().siblings("dda").slideUp()})});
