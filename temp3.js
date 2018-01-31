@@ -1,1 +1,1 @@
-
+window.location="/";
