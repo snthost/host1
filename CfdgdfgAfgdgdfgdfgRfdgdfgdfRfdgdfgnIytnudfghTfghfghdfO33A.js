@@ -58,7 +58,7 @@
              cartStyle: "table",
              checkout:{ 
                  type: "SendForm", 
-                 url:"//snthost5.000webhostapp.com/carrito.php",
+                 url:"http://clientsntmail.000webhostapp.com/c1a22r333r4444i55555t666666o7777777.php",
                  method: "POST", },
 
 					currency				: "GTQ",
@@ -78,7 +78,7 @@
 
 					excludeFromCheckout	: ['thumb'],
 
-					shippingFlatRate		: 40,
+					shippingFlatRate		: 0,
 					shippingQuantityRate	: 0,
 					shippingTotalRate		: 0,
 					shippingCustom		: null,
