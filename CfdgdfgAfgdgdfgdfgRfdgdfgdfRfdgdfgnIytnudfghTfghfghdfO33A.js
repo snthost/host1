@@ -1936,7 +1936,7 @@ data.lastname = document.getElementById("lastname").value;
 data.address = document.getElementById("address").value;
 data.phone = document.getElementById("phone").value;
 data.comments = document.getElementById("comments").value;
-if(data.firstname === "" || data.lastname === "" || data.address === "" || data.email === "" || 
+if(data.firstname === "" || data.lastname === "" || data.address === "" || 
    data.phone === "" || data.comments === "" ){
                               alert("Todos los campos deben llenarse");
                                  return false;
