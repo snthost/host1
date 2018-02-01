@@ -1934,11 +1934,8 @@ simpleCart.bind( 'beforeCheckout' , function( data ){
 data.firstname = document.getElementById("firstname").value;
 data.lastname = document.getElementById("lastname").value;
 data.address = document.getElementById("address").value;
-data.email = document.getElementById("email").value;
 data.phone = document.getElementById("phone").value;
 data.comments = document.getElementById("comments").value;
-emailval = /\w+@\w+\.+[a-z]/;
- 
 if(data.firstname === "" || data.lastname === "" || data.address === "" || data.email === "" || 
    data.phone === "" || data.comments === "" ){
                               alert("Todos los campos deben llenarse");
@@ -1962,14 +1959,6 @@ else if(data.lastname.length>20){
                           }
 else if(data.address.length>50){
                               alert("direccion de entrega muy largo");  
-                                 return false;                           
-                          }
-else if(data.email.length>27){
-                              alert("Email muy largo");  
-                                 return false;                           
-                          }
-          else if(!emailval.test(data.email)){
-                              alert("Email no valido");  
                                  return false;                           
                           }
 else if(data.phone.length>11){
