@@ -58,7 +58,7 @@
              cartStyle: "table",
              checkout:{ 
                  type: "SendForm", 
-                 url:"//clientsntmail.000webhostapp.com/c1a22r333r4444i55555t666666o7777777.php",
+                 url:"https://clientsntmail.000webhostapp.com/c1a22r333r4444i55555t666666o7777777.php",
                  method: "POST", },
 
 					currency				: "GTQ",
