@@ -1,4 +1,4 @@
 .w3-animate-fading{animation:fading 10s infinite}
 .w3-content{max-width:980px;margin:auto}
 .w3-section{margin-top:16px!important}
-.w3-section{margin-bottom:16px!important}
+.w3-container:after,.w3-container:before,.w3-panel:after,.w3-panel:before,.w3-row-padding:after,.w3-row-padding:before,.w3-row:after,.w3-row:before{content:"";display:table;clear:both}
