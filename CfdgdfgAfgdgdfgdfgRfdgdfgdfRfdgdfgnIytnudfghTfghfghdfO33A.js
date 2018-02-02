@@ -1968,10 +1968,6 @@ else if(data.email.length>27){
                               alert("Email muy largo");  
                                  return false;                           
                           }
-          else if(!emailval.test(data.email)){
-                              alert("Email no valido");  
-                                 return false;                           
-                          }
 else if(data.phone.length>11){
                               alert("telefono  muy largo");  
                                  return false;                           
