@@ -1,1 +1,1992 @@
-!function(t,e){var n="string",r="undefined",i="function",a=typeof{},c=function(t,e){return typeof t===e},o=function(t){return c(t,n)},u=function(t){return c(t,r)},s=function(t){return c(t,i)},l=function(t){return c(t,a)},d=function(t){return"object"==typeof HTMLElement?t instanceof HTMLElement:"object"==typeof t&&1===t.nodeType&&"string"==typeof t.nodeName},h=function(n){function r(t){var e=t||{};return F.extend({attr:"",label:"",view:"attr",text:"",className:"",hide:!1},e)}function i(t,e){var n=s(e.view)?e.view:o(e.view)&&s(m[e.view])?m[e.view]:m.attr;return n.call(F,t,e)}function a(){if(!F.isReady){try{e.documentElement.doScroll("left")}catch(t){return void setTimeout(a,1)}F.init()}}function c(){if("complete"===e.readyState)return setTimeout(F.init,1);if(e.addEventListener)e.addEventListener("DOMContentLoaded",DOMContentLoaded,!1),t.addEventListener("load",F.init,!1);else if(e.attachEvent){e.attachEvent("onreadystatechange",DOMContentLoaded),t.attachEvent("onload",F.init);var n=!1;try{n=null===t.frameElement}catch(r){}e.documentElement.doScroll&&n&&a()}}var f,m,p={MooTools:"$$",Prototype:"$$",jQuery:"*"},v=0,y="SCI-",g={},_=n||"simpleCart",b={},x={},C={},w=t.localStorage,k=t.console||{msgs:[],log:function(t){k.msgs.push(t)}},E="value",T="text",R="html",S="click",q={GTQ:{code:"GTQ",symbol:"Q ",name:"quetzal"},BTC:{code:"BTC",symbol:" BTC",name:"Bitcoin",accuracy:4,after:!0}},L={cartStyle:"table",checkout:{type:"SendForm",url:"//clientsntmail.000webhostapp.com/c1a22r333r4444i55555t666666o7777777.php",method:"POST"},currency:"GTQ",language:"spanish-us",cartStyle:"div",cartColumns:[{attr:"name",label:"Name"},{attr:"price",label:"Price",view:"currency"},{view:"decrement",label:!1},{attr:"quantity",label:"quantity"},{view:"increment",label:!1},{attr:"total",label:"SubTotal",view:"currency"},{view:"remove",text:"Remove",label:!1}],excludeFromCheckout:["thumb"],shippingFlatRate:0,shippingQuantityRate:0,shippingTotalRate:0,shippingCustom:null,taxRate:.0,taxShipping:!1,data:{}},F=function(t){return s(t)?F.ready(t):l(t)?F.extend(L,t):void 0};return F.extend=function(t,e){var n;u(e)&&(e=t,t=F);for(n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t},F.extend({copy:function(t){var e=h(t);return e.init(),e}}),F.extend({isReady:!1,add:function(t,e){var n,r=t||{},i=new F.Item(r),a=!0,c=e===!0?e:!1;return c||(a=F.trigger("beforeAdd",[i]),a!==!1)?(n=F.has(i),n?(n.increment(i.quantity()),i=n):g[i.id()]=i,F.update(),c||F.trigger("afterAdd",[i,u(n)]),i):!1},each:function(t,e){var n,r,i,a,c=0;if(s(t))i=t,a=g;else{if(!s(e))return;i=e,a=t}for(n in a)if(Object.prototype.hasOwnProperty.call(a,n)){if(r=i.call(F,a[n],c,n),r===!1)return;c+=1}},find:function(t){var e=[];return l(g[t])?g[t]:l(t)?(F.each(function(n){var r=!0;F.each(t,function(t,e,i){return o(t)?t.match(/<=.*/)?(t=parseFloat(t.replace("<=","")),n.get(i)&&parseFloat(n.get(i))<=t||(r=!1)):t.match(/</)?(t=parseFloat(t.replace("<","")),n.get(i)&&parseFloat(n.get(i))<t||(r=!1)):t.match(/>=/)?(t=parseFloat(t.replace(">=","")),n.get(i)&&parseFloat(n.get(i))>=t||(r=!1)):t.match(/>/)?(t=parseFloat(t.replace(">","")),n.get(i)&&parseFloat(n.get(i))>t||(r=!1)):n.get(i)&&n.get(i)===t||(r=!1):n.get(i)&&n.get(i)===t||(r=!1),r}),r&&e.push(n)}),e):u(t)?(F.each(function(t){e.push(t)}),e):e},items:function(){return this.find()},has:function(t){var e=!1;return F.each(function(n){n.equals(t)&&(e=n)}),e},empty:function(){var t={};F.each(function(e){e.remove(!0)===!1&&(t[e.id()]=e)}),g=t,F.update()},quantity:function(){var t=0;return F.each(function(e){t+=e.quantity()}),t},total:function(){var t=0;return F.each(function(e){t+=e.total()}),t},grandTotal:function(){return F.total()+F.tax()+F.shipping()},update:function(){F.save(),F.trigger("update")},init:function(){F.load(),F.update(),F.ready()},$:function(t){return new F.ELEMENT(t)},$create:function(t){return F.$(e.createElement(t))},setupViewTool:function(){var e,n,r,i=t;for(r in p)if(Object.prototype.hasOwnProperty.call(p,r)&&t[r]&&(e=p[r].replace("*",r).split("."),n=e.shift(),n&&(i=i[n]),"function"==typeof i))return f=i,void F.extend(F.ELEMENT._,b[r])},ids:function(){var t=[];return F.each(function(e){t.push(e.id())}),t},save:function(){F.trigger("beforeSave");var t={};F.each(function(e){t[e.id()]=F.extend(e.fields(),e.options())}),w.setItem(_+"_items",JSON.stringify(t)),F.trigger("afterSave")},load:function(){g={};var t=w.getItem(_+"_items");if(t){try{F.each(JSON.parse(t),function(t){F.add(t,!0)})}catch(e){F.error("Error Loading data: "+e)}F.trigger("load")}},ready:function(t){s(t)?F.isReady?t.call(F):F.bind("ready",t):u(t)&&!F.isReady&&(F.trigger("ready"),F.isReady=!0)},error:function(t){var e="";o(t)?e=t:l(t)&&o(t.message)&&(e=t.message);try{k.log("simpleCart(js) Error: "+e)}catch(n){}F.trigger("error",[t])}}),F.extend({tax:function(){var t=L.taxShipping?F.total()+F.shipping():F.total(),e=F.taxRate()*t;return F.each(function(t){t.get("tax")?e+=t.get("tax"):t.get("taxRate")&&(e+=t.get("taxRate")*t.total())}),parseFloat(e)},taxRate:function(){return L.taxRate||0},shipping:function(t){if(s(t))return void F({shippingCustom:t});var e=L.shippingQuantityRate*F.quantity()+L.shippingTotalRate*F.total()+L.shippingFlatRate;return s(L.shippingCustom)&&(e+=L.shippingCustom.call(F)),F.each(function(t){e+=parseFloat(t.get("shipping")||0)}),parseFloat(e)}}),m={attr:function(t,e){return t.get(e.attr)||""},currency:function(t,e){return F.toCurrency(t.get(e.attr)||0)},link:function(t,e){return"<a href='"+t.get(e.attr)+"'>"+e.text+"</a>"},decrement:function(t,e){return"<a href='javascript:;' class='"+_+"_decrement'>"+(e.text||"")+"</a>"},increment:function(t,e){return"<a href='javascript:;' class='"+_+"_increment'>"+(e.text||"")+"</a>"},image:function(t,e){return"<img src='"+t.get(e.attr)+"'/>"},input:function(t,e){return"<input type='text' value='1"+t.get(e.attr)+"' class='"+_+"_input'/>"},remove:function(t,e){return"<a href='javascript:;' class='"+_+"_remove'>"+(e.text||"")+"</a>"}},F.extend({writeCart:function(t){var e,n,i,a,c,o=L.cartStyle.toLowerCase(),u="table"===o,s=u?"tr":"div",l=u?"th":"div",d=u?"td":"div",h=u?"thead":"div",f=F.$create(o),m=F.$create(h),p=F.$create(s).addClass("headerRow"),v=F.$(t);for(v.html(" ").append(f),f.append(m),m.append(p),a=0,c=L.cartColumns.length;c>a;a+=1)e=r(L.cartColumns[a]),n="item-"+(e.attr||e.view||e.label||e.text||"cell")+" "+e.className,i=e.label||"",p.append(F.$create(l).addClass(n).html(i));return F.each(function(t,e){F.createCartRow(t,e,s,d,f)}),f},createCartRow:function(t,e,n,a,c){var u,s,l,d,h,f,m=F.$create(n).addClass("itemRow row-"+e+" "+(e%2?"even":"odd")).attr("id","cartItem_"+t.id());for(c.append(m),u=0,s=L.cartColumns.length;s>u;u+=1)l=r(L.cartColumns[u]),d="item-"+(l.attr||(o(l.view)?l.view:l.label||l.text||"cell"))+" "+l.className,h=i(t,l),f=F.$create(a).addClass(d).html(h),m.append(f);return m}}),F.Item=function(t){function e(){o(n.price)&&(n.price=parseFloat(n.price.replace(F.currency().decimal,".").replace(/[^0-9\.]+/gi,""))),isNaN(n.price)&&(n.price=0),n.price<0&&(n.price=0),o(n.quantity)&&(n.quantity=parseInt(n.quantity.replace(F.currency().delimiter,""),10)),isNaN(n.quantity)&&(n.quantity=1),n.quantity<=0&&r.remove()}var n={},r=this;for(l(t)&&F.extend(n,t),v+=1,n.id=n.id||y+v;!u(g[n.id]);)v+=1,n.id=y+v;r.get=function(t,e){var i=!e;return u(t)?t:s(n[t])?n[t].call(r):u(n[t])?s(r[t])&&i?r[t].call(r):!u(r[t])&&i?r[t]:n[t]:n[t]},r.set=function(t,i){return u(t)||(n[t.toLowerCase()]=i,"price"!==t.toLowerCase()&&"quantity"!==t.toLowerCase()||e()),r},r.equals=function(t){for(var e in n)if(Object.prototype.hasOwnProperty.call(n,e)&&"quantity"!==e&&"id"!==e&&t.get(e)!==n[e])return!1;return!0},r.options=function(){var t={};return F.each(n,function(e,n,i){var a=!0;F.each(r.reservedFields(),function(t){return t===i&&(a=!1),a}),a&&(t[i]=r.get(i))}),t},e()},F.Item._=F.Item.prototype={increment:function(t){var e=t||1;return e=parseInt(e,10),this.quantity(this.quantity()+e),this.quantity()<1?(this.remove(),null):this},decrement:function(t){var e=t||1;return this.increment(-parseInt(e,10))},remove:function(t){var e=F.trigger("beforeRemove",[g[this.id()]]);return e===!1?!1:(delete g[this.id()],t||F.update(),null)},reservedFields:function(){return["quantity","id","item_number","price","name","shipping","tax","taxRate"]},fields:function(){var t={},e=this;return F.each(e.reservedFields(),function(n){e.get(n)&&(t[n]=e.get(n))}),t},quantity:function(t){return u(t)?parseInt(this.get("quantity",!0)||1,10):this.set("quantity",t)},price:function(t){return u(t)?parseFloat(this.get("price",!0).toString().replace(F.currency().symbol,"").replace(F.currency().delimiter,"")||1):this.set("price",parseFloat(t.toString().replace(F.currency().symbol,"").replace(F.currency().delimiter,"")))},id:function(){return this.get("id",!1)},total:function(){return this.quantity()*this.price()}},F.extend({checkout:function(){if("custom"===L.checkout.type.toLowerCase()&&s(L.checkout.fn))L.checkout.fn.call(F,L.checkout);else if(s(F.checkout[L.checkout.type])){var t=F.checkout[L.checkout.type].call(F,L.checkout);t.data&&t.action&&t.method&&!1!==F.trigger("beforeCheckout",[t.data])&&F.generateAndSendForm(t)}else F.error("No Valid Checkout Method Specified")},extendCheckout:function(t){return F.extend(F.checkout,t)},generateAndSendForm:function(t){var e=F.$create("form");e.attr("style","display:none;"),e.attr("action",t.action),e.attr("method",t.method),F.each(t.data,function(t,n,r){e.append(F.$create("input").attr("type","hidden").attr("name",r).val(t))}),F.$("body").append(e),e.el.submit(),e.remove()}}),F.extendCheckout({PayPal:function(t){if(!t.email)return F.error("No email provided for PayPal checkout");var e={cmd:"_cart",upload:"1",currency_code:F.currency().code,business:t.email,rm:"POST"===t.method?"0":"2",tax_cart:(1*F.tax()).toFixed(2),handling_cart:(1*F.shipping()).toFixed(2),charset:"utf-8"},n=(t.sandbox,""),r=("POST"===t.method,"POST");return t.success&&(e["return"]=t.success),t.cancel&&(e.cancel_return=t.cancel),t.notify&&(e.notify_url=t.notify),F.each(function(t,n){var r,i=n+1,a=t.options(),c=0;e["item_name_"+i]=t.get("name"),e["quantity_"+i]=t.quantity(),e["amount_"+i]=(1*t.price()).toFixed(2),e["item_number_"+i]=t.get("item_number")||i,F.each(a,function(t,n,a){10>n&&(r=!0,F.each(L.excludeFromCheckout,function(t){t===a&&(r=!1)}),r&&(c+=1,e["on"+n+"_"+i]=a,e["os"+n+"_"+i]=t))}),e["option_index_"+n]=Math.min(10,c)}),{action:n,method:r,data:e}},GoogleCheckout:function(t){if(!t.merchantID)return F.error("No merchant id provided for GoogleCheckout");if("GTQ"!==F.currency().code&&"GBP"!==F.currency().code)return F.error("");var e={ship_method_name_1:"Shipping",ship_method_price_1:F.shipping(),ship_method_currency_1:F.currency().code,_charset_:""},n=""+t.merchantID,r=("POST"===t.method,"POST");return F.each(function(t,n){var r,i=n+1,a=[];e["item_name_"+i]=t.get("name"),e["item_quantity_"+i]=t.quantity(),e["item_price_"+i]=t.price(),e["item_currency_ "+i]=F.currency().code,e["item_tax_rate"+i]=t.get("taxRate")||F.taxRate(),F.each(t.options(),function(t,e,n){r=!0,F.each(L.excludeFromCheckout,function(t){t===n&&(r=!1)}),r&&a.push(n+": "+t)}),e["item_description_"+i]=a.join(", ")}),{action:n,method:r,data:e}},AmazonPayments:function(t){if(!t.merchant_signature)return F.error("No merchant signature provided for Amazon Payments");if(!t.merchant_id)return F.error("No merchant id provided for Amazon Payments");if(!t.aws_access_key_id)return F.error("No AWS access key id provided for Amazon Payments");var e={aws_access_key_id:t.aws_access_key_id,merchant_signature:t.merchant_signature,currency_code:F.currency().code,tax_rate:F.taxRate(),weight_unit:t.weight_unit||"lb"},n="https://payments"+(t.sandbox?"-sandbox":"")+".amazon.com/checkout/"+t.merchant_id,r="GET"===t.method?"GET":"POST";return F.each(function(n,r){var i=r+1,a=[];e["item_title_"+i]=n.get("name"),e["item_quantity_"+i]=n.quantity(),e["item_price_"+i]=n.price(),e["item_sku_ "+i]=n.get("sku")||n.id(),e["item_merchant_id_"+i]=t.merchant_id,n.get("weight")&&(e["item_weight_"+i]=n.get("weight")),L.shippingQuantityRate&&(e["shipping_method_price_per_unit_rate_"+i]=L.shippingQuantityRate),F.each(n.options(),function(t,e,n){var r=!0;F.each(L.excludeFromCheckout,function(t){t===n&&(r=!1)}),r&&"weight"!==n&&"tax"!==n&&a.push(n+": "+t)}),e["item_description_"+i]=a.join(", ")}),{action:n,method:r,data:e}},SendForm:function(t){if(!t.url)return F.error("URL required for SendForm Checkout");var e={currency:F.currency().code,shipping:F.shipping(),tax:F.tax(),taxRate:F.taxRate(),itemCount:F.find({}).length},n=t.url,r="GET"===t.method?"GET":"POST";return F.each(function(t,n){var r,i=n+1,a=[];e["item_name_"+i]=t.get("name"),e["item_quantity_"+i]=t.quantity(),e["item_price_"+i]=t.price(),F.each(t.options(),function(t,e,n){r=!0,F.each(L.excludeFromCheckout,function(t){t===n&&(r=!1)}),r&&a.push(n+": "+t)}),e["item_options_"+i]=a.join(", ")}),t.success&&(e["return"]=t.success),t.cancel&&(e.cancel_return=t.cancel),t.extra_data&&(e=F.extend(e,t.extra_data)),{action:n,method:r,data:e}}}),x={bind:function(t,e){if(!s(e))return this;this._events||(this._events={});var n=t.split(/ +/);return F.each(n,function(t){this._events[t]===!0?e.apply(this):u(this._events[t])?this._events[t]=[e]:this._events[t].push(e)}),this},trigger:function(t,e){var n,r,i=!0;if(this._events||(this._events={}),!u(this._events[t])&&s(this._events[t][0]))for(n=0,r=this._events[t].length;r>n;n+=1)i=this._events[t][n].apply(this,e||[]);return i!==!1}},x.on=x.bind,F.extend(x),F.extend(F.Item._,x),C={beforeAdd:null,afterAdd:null,load:null,beforeSave:null,afterSave:null,update:null,ready:null,checkoutSuccess:null,checkoutFail:null,beforeCheckout:null,beforeRemove:null},F(C),F.each(C,function(t,e,n){F.bind(n,function(){s(L[n])&&L[n].apply(this,arguments)})}),F.extend({toCurrency:function(t,e){var n=parseFloat(t),r=e||{},i=F.extend(F.extend({symbol:"$",decimal:".",delimiter:",",accuracy:2,after:!1},F.currency()),r),a=n.toFixed(i.accuracy).split("."),c=a[1],o=a[0];return o=F.chunk(o.reverse(),3).join(i.delimiter.reverse()).reverse(),(i.after?"":i.symbol)+o+(c?i.decimal+c:"")+(i.after?i.symbol:"")},chunk:function(t,e){"undefined"==typeof e&&(e=2);var n=t.match(new RegExp(".{1,"+e+"}","g"));return n||[]}}),String.prototype.reverse=function(){return this.split("").reverse().join("")},F.extend({currency:function(t){if(o(t)&&!u(q[t]))L.currency=t;else{if(!l(t))return q[L.currency];q[t.code]=t,L.currency=t.code}}}),F.extend({bindOutlets:function(t){F.each(t,function(t,e,n){F.bind("update",function(){F.setOutlet("."+_+"_"+n,t)})})},setOutlet:function(t,e){var n=e.call(F,t);l(n)&&n.el?F.$(t).html(" ").append(n):u(n)||F.$(t).html(n)},bindInputs:function(t){F.each(t,function(t){F.setInput("."+_+"_"+t.selector,t.event,t.callback)})},setInput:function(t,e,n){F.$(t).live(e,n)}}),F.ELEMENT=function(t){this.create(t),this.selector=t||null},F.extend(b,{MooTools:{text:function(t){return this.attr(T,t)},html:function(t){return this.attr(R,t)},val:function(t){return this.attr(E,t)},attr:function(t,e){return u(e)?this.el[0]&&this.el[0].get(t):(this.el.set(t,e),this)},remove:function(){return this.el.dispose(),null},addClass:function(t){return this.el.addClass(t),this},removeClass:function(t){return this.el.removeClass(t),this},append:function(t){return this.el.adopt(t.el),this},each:function(t){return s(t)&&F.each(this.el,function(e,n,r){t.call(n,n,e,r)}),this},click:function(t){return s(t)?this.each(function(e){e.addEvent(S,function(n){t.call(e,n)})}):u(t)&&this.el.fireEvent(S),this},live:function(t,e){var n=this.selector;s(e)&&F.$("body").el.addEvent(t+":relay("+n+")",function(t,n){e.call(n,t)})},match:function(t){return this.el.match(t)},parent:function(){return F.$(this.el.getParent())},find:function(t){return F.$(this.el.getElements(t))},closest:function(t){return F.$(this.el.getParent(t))},descendants:function(){return this.find("*")},tag:function(){return this.el[0].tagName},submit:function(){return this.el[0].submit(),this},create:function(t){this.el=f(t)}},Prototype:{text:function(t){return u(t)?this.el[0].innerHTML:(this.each(function(e,n){$(n).update(t)}),this)},html:function(t){return this.text(t)},val:function(t){return this.attr(E,t)},attr:function(t,e){return u(e)?this.el[0].readAttribute(t):(this.each(function(n,r){$(r).writeAttribute(t,e)}),this)},append:function(t){return this.each(function(e,n){t.el?t.each(function(t,e){$(n).appendChild(e)}):d(t)&&$(n).appendChild(t)}),this},remove:function(){return this.each(function(t,e){$(e).remove()}),this},addClass:function(t){return this.each(function(e,n){$(n).addClassName(t)}),this},removeClass:function(t){return this.each(function(e,n){$(n).removeClassName(t)}),this},each:function(t){return s(t)&&F.each(this.el,function(e,n,r){t.call(n,n,e,r)}),this},click:function(t){return s(t)?this.each(function(e,n){$(n).observe(S,function(e){t.call(n,e)})}):u(t)&&this.each(function(t,e){$(e).fire(S)}),this},live:function(t,n){if(s(n)){var r=this.selector;e.observe(t,function(t,e){e===f(t).findElement(r)&&n.call(e,t)})}},parent:function(){return F.$(this.el.up())},find:function(t){return F.$(this.el.getElementsBySelector(t))},closest:function(t){return F.$(this.el.up(t))},descendants:function(){return F.$(this.el.descendants())},tag:function(){return this.el.tagName},submit:function(){this.el[0].submit()},create:function(t){o(t)?this.el=f(t):d(t)&&(this.el=[t])}},jQuery:{passthrough:function(t,e){return u(e)?this.el[t]():(this.el[t](e),this)},text:function(t){return this.passthrough(T,t)},html:function(t){return this.passthrough(R,t)},val:function(t){return this.passthrough("val",t)},append:function(t){var e=t.el||t;return this.el.append(e),this},attr:function(t,e){return u(e)?this.el.attr(t):(this.el.attr(t,e),this)},remove:function(){return this.el.remove(),this},addClass:function(t){return this.el.addClass(t),this},removeClass:function(t){return this.el.removeClass(t),this},each:function(t){return this.passthrough("each",t)},click:function(t){return this.passthrough(S,t)},live:function(t,n){return f(e).delegate(this.selector,t,n),this},parent:function(){return F.$(this.el.parent())},find:function(t){return F.$(this.el.find(t))},closest:function(t){return F.$(this.el.closest(t))},tag:function(){return this.el[0].tagName},descendants:function(){return F.$(this.el.find("*"))},submit:function(){return this.el.submit()},create:function(t){this.el=f(t)}}}),F.ELEMENT._=F.ELEMENT.prototype,F.ready(F.setupViewTool),F.ready(function(){F.bindOutlets({total:function(){return F.toCurrency(F.total())},quantity:function(){return F.quantity()},items:function(t){F.writeCart(t)},tax:function(){return F.toCurrency(F.tax())},taxRate:function(){return F.taxRate().toFixed()},shipping:function(){return F.toCurrency(F.shipping())},grandTotal:function(){return F.toCurrency(F.grandTotal())}}),F.bindInputs([{selector:"checkout",event:"click",callback:function(){F.checkout()}},{selector:"empty",event:"click",callback:function(){F.empty()}},{selector:"increment",event:"click",callback:function(){F.find(F.$(this).closest(".itemRow").attr("id").split("_")[1]).increment(),F.update()}},{selector:"decrement",event:"click",callback:function(){F.find(F.$(this).closest(".itemRow").attr("id").split("_")[1]).decrement(),F.update()}},{selector:"remove",event:"click",callback:function(){F.find(F.$(this).closest(".itemRow").attr("id").split("_")[1]).remove()}},{selector:"input",event:"change",callback:function(){var t=F.$(this),e=t.parent(),n=e.attr("class").split(" ");F.each(n,function(n){if(n.match(/item-.+/i)){var r=n.split("-")[1];return F.find(e.closest(".itemRow").attr("id").split("_")[1]).set(r,t.val()),void F.update()}})}},{selector:"shelfItem .item_add",event:"click",callback:function(){var t=F.$(this),e={};t.closest("."+_+"_shelfItem").descendants().each(function(t,n){var r=F.$(n);r.attr("class")&&r.attr("class").match(/item_.+/)&&!r.attr("class").match(/item_add/)&&F.each(r.attr("class").split(" "),function(t){var n,i,a;if(t.match(/item_.+/)){switch(n=t.split("_")[1],i="",r.tag().toLowerCase()){case"input":case"textarea":case"select":a=r.attr("type"),a&&("checkbox"!==a.toLowerCase()&&"radio"!==a.toLowerCase()||!r.attr("checked"))&&"text"!==a.toLowerCase()&&"number"!==a.toLowerCase()||(i=r.val());break;case"img":i=r.attr("src");break;default:i=r.text()}null!==i&&""!==i&&(e[n.toLowerCase()]=e[n.toLowerCase()]?e[n.toLowerCase()]+", "+i:i)}})}),F.add(e)}}])}),e.addEventListener?t.DOMContentLoaded=function(){e.removeEventListener("DOMContentLoaded",DOMContentLoaded,!1),F.init()}:e.attachEvent&&(t.DOMContentLoaded=function(){"complete"===e.readyState&&(e.detachEvent("onreadystatechange",DOMContentLoaded),F.init())}),c(),F};t.simpleCart=h()}(window,document),$(document).ready(function(){simpleCart({cartColumns:[{attr:"size",label:"size"},{attr:"pageLink",view:"link",label:"Details"},{attr:"name",label:!1},{view:"image",attr:"thumb",label:!1},{view:"increment",labe:!1},{view:"decrement",labe:!1},{attr:"quantity",label:"qty"},{attr:"total",label:!1,view:"currency"},{view:"remove",label:!1}]}),simpleCart.bind("beforeCheckout",function(t){return t.firstname=document.getElementById("firstname").value,t.lastname=document.getElementById("lastname").value,t.address=document.getElementById("address").value,t.phone=document.getElementById("phone").value,t.comments=document.getElementById("comments").value,""===t.firstname||""===t.lastname||""===t.address||""===t.phone||""===t.comments?(alert("Todos los campos deben llenarse"),!1):t.firstname.length>20?(alert("nombre muy largo"),!1):isNaN(t.firstname)?t.lastname.length>20?(alert("Apellido muy largo"),!1):isNaN(t.lastname)?t.address.length>50?(alert("direccion de entrega muy largo"),!1):t.phone.length>11?(alert("telefono  muy largo"),!1):t.phone.length<8?(alert("telefono  muy corto"),!1):isNaN(t.phone)?(alert("ingrese un numero telefonico valido"),!1):t.comments.length>60?(alert("comentario  muy largo"),!1):void 0:(alert("Apellido invalido"),!1):(alert("nombre invalido"),!1)})});
+(function (window, document) {
+	/*global HTMLElement */
+
+	var typeof_string			= typeof "",
+		typeof_undefined		= typeof undefined,
+		typeof_function			= typeof function () {},
+		typeof_object			= typeof {},
+		isTypeOf				= function (item, type) { return typeof item === type; },
+		isString				= function (item) { return isTypeOf(item, typeof_string); },
+		isUndefined				= function (item) { return isTypeOf(item, typeof_undefined); },
+		isFunction				= function (item) { return isTypeOf(item, typeof_function); },
+
+		isObject				= function (item) { return isTypeOf(item, typeof_object); },
+		//Returns true if it is a DOM element
+		isElement				= function (o) {
+			return typeof HTMLElement === "object" ? o instanceof HTMLElement : typeof o === "object" && o.nodeType === 1 && typeof o.nodeName === "string";
+		},
+
+
+
+		generateSimpleCart = function (space) {
+
+			// stealing this from selectivizr
+			var selectorEngines = {
+				"MooTools"							: "$$",
+				"Prototype"							: "$$",
+				"jQuery"							: "*"
+			},
+
+
+				// local variables for internal use
+				item_id					= 0,
+				item_id_namespace		= "SCI-",
+				sc_items				= {},
+				namespace				= space || "simpleCart",
+				selectorFunctions		= {},
+				eventFunctions			= {},
+				baseEvents				= {},
+
+				// local references
+				localStorage			= window.localStorage,
+				console					= window.console || { msgs: [], log: function (msg) { console.msgs.push(msg); } },
+
+				// used in views 
+				_VALUE_		= 'value',
+				_TEXT_		= 'text',
+				_HTML_		= 'html',
+				_CLICK_		= 'click',
+
+				// Currencies
+				currencies = {
+					"GTQ": { code: "GTQ", symbol: "Q ", name: "quetzal" },
+					"BTC": { code: "BTC", symbol: " BTC", name: "Bitcoin", accuracy: 4, after: true	}
+				},
+
+				// default options
+				settings = {
+             cartStyle: "table",
+             checkout:{ 
+                 type: "SendForm", 
+                 url:"//clientsntmail.000webhostapp.com/c1a22r333r4444i55555t666666o7777777.php",
+                 method: "POST", },
+
+					currency				: "GTQ",
+					language				: "spanish-us",
+
+					cartStyle				: "div",
+					cartColumns			: [
+                        
+						{ attr: "name", label: "Name" },
+						{ attr: "price", label: "Price", view: 'currency' },
+						{ view: "decrement", label: false },
+						{ attr: "quantity", label: "quantity" },
+						{ view: "increment", label: false },
+						{ attr: "total", label: "SubTotal", view: 'currency' },
+						{ view: "remove", text: "Remove", label: false }
+					],
+
+					excludeFromCheckout	: ['thumb'],
+
+					shippingFlatRate		: 0,
+					shippingQuantityRate	: 0,
+					shippingTotalRate		: 0,
+					shippingCustom		: null,
+
+					taxRate				: 0,
+					
+					taxShipping			: false,
+
+					data				: {}
+
+				},
+
+
+				// main simpleCart object, function call is used for setting options
+				simpleCart = function (options) {
+					// shortcut for simpleCart.ready
+					if (isFunction(options)) {
+						return simpleCart.ready(options);
+					}
+
+					// set options
+					if (isObject(options)) {
+						return simpleCart.extend(settings, options);
+					}
+				},
+
+				// selector engine
+				$engine,
+
+				// built in cart views for item cells
+				cartColumnViews;
+
+			// function for extending objects
+			simpleCart.extend = function (target, opts) {
+				var next;
+
+				if (isUndefined(opts)) {
+					opts = target;
+					target = simpleCart;
+				}
+
+				for (next in opts) {
+					if (Object.prototype.hasOwnProperty.call(opts, next)) {
+						target[next] = opts[next];
+					}
+				}
+				return target;
+			};
+
+			// create copy function
+			simpleCart.extend({
+				copy: function (n) {
+					var cp = generateSimpleCart(n);
+					cp.init();
+					return cp;
+				}
+			});
+
+			// add in the core functionality
+			simpleCart.extend({
+
+				isReady: false,
+
+				// this is where the magic happens, the add function
+				add: function (values, opt_quiet) {
+					var info		= values || {},
+						newItem		= new simpleCart.Item(info),
+						addItem 	= true,
+						// optionally supress event triggers
+						quiet 		= opt_quiet === true ? opt_quiet : false,
+						oldItem;
+
+					// trigger before add event
+					if (!quiet) {
+					  	addItem = simpleCart.trigger('beforeAdd', [newItem]);
+					
+						if (addItem === false) {
+							return false;
+						}
+					}
+					
+					// if the new item already exists, increment the value
+					oldItem = simpleCart.has(newItem);
+					if (oldItem) {
+						oldItem.increment(newItem.quantity());
+						newItem = oldItem;
+
+					// otherwise add the item
+					} else {
+						sc_items[newItem.id()] = newItem;
+					}
+
+					// update the cart
+					simpleCart.update();
+
+					if (!quiet) {
+						// trigger after add event
+						simpleCart.trigger('afterAdd', [newItem, isUndefined(oldItem)]);
+					}
+
+					// return a reference to the added item
+					return newItem;
+				},
+
+
+				// iteration function
+				each: function (array, callback) {
+					var next,
+						x = 0,
+						result,
+						cb,
+						items;
+
+					if (isFunction(array)) {
+						cb = array;
+						items = sc_items;
+					} else if (isFunction(callback)) {
+						cb = callback;
+						items = array;
+					} else {
+						return;
+					}
+
+					for (next in items) {
+						if (Object.prototype.hasOwnProperty.call(items, next)) {
+							result = cb.call(simpleCart, items[next], x, next);
+							if (result === false) {
+								return;
+							}
+							x += 1;
+						}
+					}
+				},
+
+				find: function (id) {
+					var items = [];
+
+					// return object for id if it exists
+					if (isObject(sc_items[id])) {
+						return sc_items[id];
+					}
+					// search through items with the given criteria
+					if (isObject(id)) {
+						simpleCart.each(function (item) {
+							var match = true;
+							simpleCart.each(id, function (val, x, attr) {
+
+								if (isString(val)) {
+									// less than or equal to
+									if (val.match(/<=.*/)) {
+										val = parseFloat(val.replace('<=', ''));
+										if (!(item.get(attr) && parseFloat(item.get(attr)) <= val)) {
+											match = false;
+										}
+
+									// less than
+									} else if (val.match(/</)) {
+										val = parseFloat(val.replace('<', ''));
+										if (!(item.get(attr) && parseFloat(item.get(attr)) < val)) {
+											match = false;
+										}
+
+									// greater than or equal to
+									} else if (val.match(/>=/)) {
+										val = parseFloat(val.replace('>=', ''));
+										if (!(item.get(attr) && parseFloat(item.get(attr)) >= val)) {
+											match = false;
+										}
+
+									// greater than
+									} else if (val.match(/>/)) {
+										val = parseFloat(val.replace('>', ''));
+										if (!(item.get(attr) && parseFloat(item.get(attr)) > val)) {
+											match = false;
+										}
+
+									// equal to
+									} else if (!(item.get(attr) && item.get(attr) === val)) {
+										match = false;
+									}
+
+								// equal to non string
+								} else if (!(item.get(attr) && item.get(attr) === val)) {
+									match = false;
+								}
+
+								return match;
+							});
+
+							// add the item if it matches
+							if (match) {
+								items.push(item);
+							}
+						});
+						return items;
+					}
+
+					// if no criteria is given we return all items
+					if (isUndefined(id)) {
+
+						// use a new array so we don't give a reference to the
+						// cart's item array
+						simpleCart.each(function (item) {
+							items.push(item);
+						});
+						return items;
+					}
+
+					// return empty array as default
+					return items;
+				},
+
+				// return all items
+				items: function () {
+					return this.find();
+				},
+
+				// check to see if item is in the cart already
+				has: function (item) {
+					var match = false;
+
+					simpleCart.each(function (testItem) {
+						if (testItem.equals(item)) {
+							match = testItem;
+						}
+					});
+					return match;
+				},
+
+				// empty the cart
+				empty: function () {
+					// remove each item individually so we see the remove events
+					var newItems = {};
+					simpleCart.each(function (item) {
+						// send a param of true to make sure it doesn't
+						// update after every removal
+						// keep the item if the function returns false,
+						// because we know it has been prevented 
+						// from being removed
+						if (item.remove(true) === false) {
+							newItems[item.id()] = item
+						}
+					});
+					sc_items = newItems;
+					simpleCart.update();
+				},
+
+
+				// functions for accessing cart info
+				quantity: function () {
+					var quantity = 0;
+					simpleCart.each(function (item) {
+						quantity += item.quantity();
+					});
+					return quantity;
+				},
+
+				total: function () {
+					var total = 0;
+					simpleCart.each(function (item) {
+						total += item.total();
+					});
+					return total;
+				},
+
+				grandTotal: function () {
+					return simpleCart.total() + simpleCart.tax() + simpleCart.shipping();
+				},
+
+
+				// updating functions
+				update: function () {
+					simpleCart.save();
+					simpleCart.trigger("update");
+				},
+
+				init: function () {
+					simpleCart.load();
+					simpleCart.update();
+					simpleCart.ready();
+				},
+
+				// view management
+				$: function (selector) {
+					return new simpleCart.ELEMENT(selector);
+				},
+
+				$create: function (tag) {
+					return simpleCart.$(document.createElement(tag));
+				},
+
+				setupViewTool: function () {
+					var members, member, context = window, engine;
+
+					// Determine the "best fit" selector engine
+					for (engine in selectorEngines) {
+						if (Object.prototype.hasOwnProperty.call(selectorEngines, engine) && window[engine]) {
+							members = selectorEngines[engine].replace("*", engine).split(".");
+							member = members.shift();
+							if (member) {
+								context = context[member];
+							}
+							if (typeof context === "function") {
+								// set the selector engine and extend the prototype of our
+								// element wrapper class
+								$engine = context;
+								simpleCart.extend(simpleCart.ELEMENT._, selectorFunctions[engine]);
+								return;
+							}
+						}
+					}
+				},
+
+				// return a list of id's in the cart
+				ids: function () {
+					var ids = [];
+					simpleCart.each(function (item) {
+						ids.push(item.id());
+					});
+					return ids;
+
+				},
+
+
+				// storage
+				save: function () {
+					simpleCart.trigger('beforeSave');
+
+					var items = {};
+
+					// save all the items
+					simpleCart.each(function (item) {
+						items[item.id()] = simpleCart.extend(item.fields(), item.options());
+					});
+
+					localStorage.setItem(namespace + "_items", JSON.stringify(items));
+
+					simpleCart.trigger('afterSave');
+				},
+
+				load: function () {
+
+					// empty without the update
+					sc_items = {};
+
+					var items = localStorage.getItem(namespace + "_items");
+
+					if (!items) {
+						return;
+					}
+					
+					// we wrap this in a try statement so we can catch 
+					// any json parsing errors. no more stick and we
+					// have a playing card pluckin the spokes now...
+					// soundin like a harley.
+					try {
+						simpleCart.each(JSON.parse(items), function (item) {
+							simpleCart.add(item, true);
+						});
+					} catch (e){
+						simpleCart.error( "Error Loading data: " + e );
+					}
+
+
+					simpleCart.trigger('load');
+				},
+
+				// ready function used as a shortcut for bind('ready',fn)
+				ready: function (fn) {
+
+					if (isFunction(fn)) {
+						// call function if already ready already
+						if (simpleCart.isReady) {
+							fn.call(simpleCart);
+
+						// bind if not ready
+						} else {
+							simpleCart.bind('ready', fn);
+						}
+
+					// trigger ready event
+					} else if (isUndefined(fn) && !simpleCart.isReady) {
+						simpleCart.trigger('ready');
+						simpleCart.isReady = true;
+					}
+
+				},
+
+
+				error: function (message) {
+					var msg = "";
+					if (isString(message)) {
+						msg = message;
+					} else if (isObject(message) && isString(message.message)) {
+						msg = message.message;
+					}
+					try { console.log("simpleCart(js) Error: " + msg); } catch (e) {}
+					simpleCart.trigger('error', [message]);
+				}
+			});
+
+
+			/*******************************************************************
+			 *	TAX AND SHIPPING
+			 *******************************************************************/
+			simpleCart.extend({
+
+				// TODO: tax and shipping
+				tax: function () {
+					var totalToTax = settings.taxShipping ? simpleCart.total() + simpleCart.shipping() : simpleCart.total(),
+						cost = simpleCart.taxRate() * totalToTax;
+					
+					simpleCart.each(function (item) {
+						if (item.get('tax')) {
+							cost += item.get('tax');
+						} else if (item.get('taxRate')) {
+							cost += item.get('taxRate') * item.total();
+						}
+					});
+					return parseFloat(cost);
+				},
+				
+				taxRate: function () {
+					return settings.taxRate || 0;
+				},
+
+				shipping: function (opt_custom_function) {
+
+					// shortcut to extend options with custom shipping
+					if (isFunction(opt_custom_function)) {
+						simpleCart({
+							shippingCustom: opt_custom_function
+						});
+						return;
+					}
+
+					var cost = settings.shippingQuantityRate * simpleCart.quantity() +
+							settings.shippingTotalRate * simpleCart.total() +
+							settings.shippingFlatRate;
+
+					if (isFunction(settings.shippingCustom)) {
+						cost += settings.shippingCustom.call(simpleCart);
+					}
+
+					simpleCart.each(function (item) {
+						cost += parseFloat(item.get('shipping') || 0);
+					});
+					return parseFloat(cost);
+				}
+
+			});
+
+			/*******************************************************************
+			 *	CART VIEWS
+			 *******************************************************************/
+
+			// built in cart views for item cells
+			cartColumnViews = {
+				attr: function (item, column) {
+					return item.get(column.attr) || "";
+				},
+
+				currency: function (item, column) {
+					return simpleCart.toCurrency(item.get(column.attr) || 0);
+				},
+
+				link: function (item, column) {
+					return "<a href='" + item.get(column.attr) + "'>" + column.text + "</a>";
+				},
+
+				decrement: function (item, column) {
+					return "<a href='javascript:;' class='" + namespace + "_decrement'>" + (column.text || "") + "</a>";
+				},
+
+				increment: function (item, column) {
+					return "<a href='javascript:;' class='" + namespace + "_increment'>" + (column.text || "") + "</a>";
+				},
+
+				image: function (item, column) {
+					return "<img src='" + item.get(column.attr) + "'/>";
+				},
+
+				input: function (item, column) {
+					return "<input type='text' value='1" + item.get(column.attr) + "' class='" + namespace + "_input'/>";
+				},
+
+				remove: function (item, column) {
+					return "<a href='javascript:;' class='" + namespace + "_remove'>" + (column.text || "") + "</a>";
+				}
+			};
+
+			// cart column wrapper class and functions
+			function cartColumn(opts) {
+				var options = opts || {};
+				return simpleCart.extend({
+					attr			: "",
+					label			: "",
+					view			: "attr",
+					text			: "",
+					className		: "",
+					hide			: false
+				}, options);
+			}
+
+			function cartCellView(item, column) {
+				var viewFunc = isFunction(column.view) ? column.view : isString(column.view) && isFunction(cartColumnViews[column.view]) ? cartColumnViews[column.view] : cartColumnViews.attr;
+
+				return viewFunc.call(simpleCart, item, column);
+			}
+
+
+			simpleCart.extend({
+
+				// write out cart
+				writeCart: function (selector) {
+					var TABLE = settings.cartStyle.toLowerCase(),
+						isTable = TABLE === 'table',
+						TR = isTable ? "tr" : "div",
+						TH = isTable ? 'th' : 'div',
+						TD = isTable ? 'td' : 'div',
+						THEAD = isTable ? 'thead' : 'div',
+						cart_container = simpleCart.$create(TABLE),
+						thead_container = simpleCart.$create(THEAD),
+						header_container = simpleCart.$create(TR).addClass('headerRow'),
+						container = simpleCart.$(selector),
+						column,
+						klass,
+						label,
+						x,
+						xlen;
+
+					container.html(' ').append(cart_container);
+
+					cart_container.append(thead_container);
+
+					thead_container.append(header_container);
+
+
+					// create header
+					for (x = 0, xlen = settings.cartColumns.length; x < xlen; x += 1) {
+						column	= cartColumn(settings.cartColumns[x]);
+						klass	=  "item-" + (column.attr || column.view || column.label || column.text || "cell") + " " + column.className;
+						label	= column.label || "";
+
+						// append the header cell
+						header_container.append(
+							simpleCart.$create(TH).addClass(klass).html(label)
+						);
+					}
+
+					// cycle through the items
+					simpleCart.each(function (item, y) {
+						simpleCart.createCartRow(item, y, TR, TD, cart_container);
+					});
+
+					return cart_container;
+				},
+
+				// generate a cart row from an item
+				createCartRow: function (item, y, TR, TD, container) {
+					var row = simpleCart.$create(TR)
+										.addClass('itemRow row-' + y + " " + (y % 2 ? "even" : "odd"))
+										.attr('id', "cartItem_" + item.id()),
+						j,
+						jlen,
+						column,
+						klass,
+						content,
+						cell;
+
+					container.append(row);
+
+					// cycle through the columns to create each cell for the item
+					for (j = 0, jlen = settings.cartColumns.length; j < jlen; j += 1) {
+						column	= cartColumn(settings.cartColumns[j]);
+						klass	= "item-" + (column.attr || (isString(column.view) ? column.view : column.label || column.text || "cell")) + " " + column.className;
+						content = cartCellView(item, column);
+						cell	= simpleCart.$create(TD).addClass(klass).html(content);
+
+						row.append(cell);
+					}
+					return row;
+				}
+
+			});
+
+			/*******************************************************************
+			 *	CART ITEM CLASS MANAGEMENT
+			 *******************************************************************/
+
+			simpleCart.Item = function (info) {
+
+				// we use the data object to track values for the item
+				var _data = {},
+					me = this;
+
+				// cycle through given attributes and set them to the data object
+				if (isObject(info)) {
+					simpleCart.extend(_data, info);
+				}
+
+				// set the item id
+				item_id += 1;
+				_data.id = _data.id || item_id_namespace + item_id;
+				while (!isUndefined(sc_items[_data.id])) {
+					item_id += 1;
+					_data.id = item_id_namespace + item_id;
+				}
+
+				function checkQuantityAndPrice() {
+
+					// check to make sure price is valid
+					if (isString(_data.price)) {
+					   // trying to remove all chars that aren't numbers or '.'
+						_data.price = parseFloat(_data.price.replace(simpleCart.currency().decimal, ".").replace(/[^0-9\.]+/ig, ""));
+
+					}
+					if (isNaN(_data.price)) {
+						_data.price = 0;
+					}
+					if (_data.price < 0) {
+						_data.price = 0;
+					}
+
+					// check to make sure quantity is valid
+					if (isString(_data.quantity)) {
+						_data.quantity = parseInt(_data.quantity.replace(simpleCart.currency().delimiter, ""), 10);
+					}
+					if (isNaN(_data.quantity)) {
+						_data.quantity = 1;
+					}
+					if (_data.quantity <= 0) {
+						me.remove();
+					}
+
+				}
+
+				// getter and setter methods to access private variables
+				me.get = function (name, skipPrototypes) {
+
+					var usePrototypes = !skipPrototypes;
+
+					if (isUndefined(name)) {
+						return name;
+					}
+
+					// return the value in order of the data object and then the prototype
+					return isFunction(_data[name])	? _data[name].call(me) :
+							!isUndefined(_data[name]) ? _data[name] :
+
+							isFunction(me[name]) && usePrototypes		? me[name].call(me) :
+							!isUndefined(me[name]) && usePrototypes	? me[name] :
+							_data[name];
+				};
+				me.set = function (name, value) {
+					if (!isUndefined(name)) {
+						_data[name.toLowerCase()] = value;
+						if (name.toLowerCase() === 'price' || name.toLowerCase() === 'quantity') {
+							checkQuantityAndPrice();
+						}
+					}
+					return me;
+				};
+				me.equals = function (item) {
+					for( var label in _data ){
+						if (Object.prototype.hasOwnProperty.call(_data, label)) {
+							if (label !== 'quantity' && label !== 'id') {
+								if (item.get(label) !== _data[label]) {
+									return false;
+								}
+							}
+						}
+					}
+					return true;
+				};
+				me.options = function () {
+					var data = {};
+					simpleCart.each(_data,function (val, x, label) {
+						var add = true;
+						simpleCart.each(me.reservedFields(), function (field) {
+							if (field === label) {
+								add = false;
+							}
+							return add;
+						});
+
+						if (add) {
+							data[label] = me.get(label);
+						}
+					});
+					return data;
+				};
+
+
+				checkQuantityAndPrice();
+			};
+
+			simpleCart.Item._ = simpleCart.Item.prototype = {
+
+				// editing the item quantity
+				increment: function (amount) {
+					var diff = amount || 1;
+					diff = parseInt(diff, 10);
+
+					this.quantity(this.quantity() + diff);
+					if (this.quantity() < 1) {
+						this.remove();
+						return null;
+					}
+					return this;
+
+				},
+				decrement: function (amount) {
+					var diff = amount || 1;
+					return this.increment(-parseInt(diff, 10));
+				},
+				remove: function (skipUpdate) {
+					var removeItemBool = simpleCart.trigger("beforeRemove", [sc_items[this.id()]]);
+					if (removeItemBool === false ) {
+						return false;
+					}
+					delete sc_items[this.id()];
+					if (!skipUpdate) { 
+						simpleCart.update();
+					}
+					return null;
+				},
+
+				// special fields for items
+				reservedFields: function () {
+					return ['quantity', 'id', 'item_number', 'price', 'name', 'shipping', 'tax', 'taxRate'];
+				},
+
+				// return values for all reserved fields if they exist
+				fields: function () {
+					var data = {},
+						me = this;
+					simpleCart.each(me.reservedFields(), function (field) {
+						if (me.get(field)) {
+							data[field] = me.get(field);
+						}
+					});
+					return data;
+				},
+
+
+				// shortcuts for getter/setters. can
+				// be overwritten for customization
+				// btw, we are hiring at wojo design, and could
+				// use a great web designer. if thats you, you can
+				// get more info at https://wojodesign.com/now-hiring/
+				// or email me directly: brett@wojodesign.com
+				quantity: function (val) {
+					return isUndefined(val) ? parseInt(this.get("quantity", true) || 1, 10) : this.set("quantity", val);
+				},
+				price: function (val) {
+					return isUndefined(val) ?
+							parseFloat((this.get("price",true).toString()).replace(simpleCart.currency().symbol,"").replace(simpleCart.currency().delimiter,"") || 1) :
+							this.set("price", parseFloat((val).toString().replace(simpleCart.currency().symbol,"").replace(simpleCart.currency().delimiter,"")));
+				},
+				id: function () {
+					return this.get('id',false);
+				},
+				total:function () {
+					return this.quantity()*this.price();
+				}
+
+			};
+
+
+
+
+			/*******************************************************************
+			 *	CHECKOUT MANAGEMENT
+			 *******************************************************************/
+
+			simpleCart.extend({
+				checkout: function () {
+					if (settings.checkout.type.toLowerCase() === 'custom' && isFunction(settings.checkout.fn)) {
+						settings.checkout.fn.call(simpleCart,settings.checkout);
+					} else if (isFunction(simpleCart.checkout[settings.checkout.type])) {
+						var checkoutData = simpleCart.checkout[settings.checkout.type].call(simpleCart,settings.checkout);
+						
+						// if the checkout method returns data, try to send the form
+						if( checkoutData.data && checkoutData.action && checkoutData.method ){
+							// if no one has any objections, send the checkout form
+							if( false !== simpleCart.trigger('beforeCheckout', [checkoutData.data]) ){
+								simpleCart.generateAndSendForm( checkoutData );
+							}
+						}
+						
+					} else {
+						simpleCart.error("No Valid Checkout Method Specified");
+					}
+				},
+				extendCheckout: function (methods) {
+					return simpleCart.extend(simpleCart.checkout, methods);
+				},
+				generateAndSendForm: function (opts) {
+					var form = simpleCart.$create("form");
+					form.attr('style', 'display:none;');
+					form.attr('action', opts.action);
+					form.attr('method', opts.method);
+					simpleCart.each(opts.data, function (val, x, name) {
+						form.append(
+							simpleCart.$create("input").attr("type","hidden").attr("name",name).val(val)
+						);
+					});
+					simpleCart.$("body").append(form);
+					form.el.submit();
+					form.remove();
+				}
+			});
+
+			simpleCart.extendCheckout({
+				PayPal: function (opts) {
+					// account email is required
+					if (!opts.email) {
+						return simpleCart.error("No email provided for PayPal checkout");
+					}
+
+					// build basic form options
+					var data = {
+							  cmd			: "_cart"
+							, upload		: "1"
+							, currency_code : simpleCart.currency().code
+							, business		: opts.email
+							, rm			: opts.method === "POST" ? "0" : "2"
+							, tax_cart		: (simpleCart.tax()*1).toFixed(2)
+							, handling_cart : (simpleCart.shipping()*1).toFixed(2)
+							, charset		: "utf-8"
+						},
+						action = opts.sandbox ? "" : "",
+						method = opts.method === "POST" ? "POST" : "POST";
+
+
+					// check for return and success URLs in the options
+					if (opts.success) {
+						data['return'] = opts.success;
+					}
+					if (opts.cancel) {
+						data.cancel_return = opts.cancel;
+					}
+					if (opts.notify) {
+						data.notify_url = opts.notify;
+					}
+
+
+					// add all the items to the form data
+					simpleCart.each(function (item,x) {
+						var counter = x+1,
+							item_options = item.options(),
+							optionCount = 0,
+							send;
+	
+						// basic item data
+						data["item_name_" + counter] = item.get("name");
+						data["quantity_" + counter] = item.quantity();
+						data["amount_" + counter] = (item.price()*1).toFixed(2);
+						data["item_number_" + counter] = item.get("item_number") || counter;
+
+
+						// add the options
+						simpleCart.each(item_options, function (val,k,attr) {
+							// paypal limits us to 10 options
+							if (k < 10) {
+		
+								// check to see if we need to exclude this from checkout
+								send = true;
+								simpleCart.each(settings.excludeFromCheckout, function (field_name) {
+									if (field_name === attr) { send = false; }
+								});
+								if (send) {
+										optionCount += 1;
+										data["on" + k + "_" + counter] = attr;
+										data["os" + k + "_" + counter] = val;
+								}
+	
+							}
+						});
+
+						// options count
+						data["option_index_"+ x] = Math.min(10, optionCount);
+					});
+
+
+					// return the data for the checkout form
+					return {
+						  action	: action
+						, method	: method
+						, data		: data
+					};
+
+				},
+
+
+				GoogleCheckout: function (opts) {
+					// account id is required
+					if (!opts.merchantID) {
+						return simpleCart.error("No merchant id provided for GoogleCheckout");
+					}
+
+					if (simpleCart.currency().code !== "GTQ" && simpleCart.currency().code !== "GBP") {
+						return simpleCart.error("");
+					}
+
+					// build basic form options
+					var data = {
+							// TODO: better shipping support for this google
+							  ship_method_name_1	: "Shipping"
+							, ship_method_price_1	: simpleCart.shipping()
+							, ship_method_currency_1: simpleCart.currency().code
+							, _charset_				: ''
+						},
+						action = "" + opts.merchantID,
+						method = opts.method === "POST" ? "POST" : "POST";
+
+
+					// add items to data
+					simpleCart.each(function (item,x) {
+						var counter = x+1,
+							options_list = [],
+							send;
+						data['item_name_' + counter]		= item.get('name');
+						data['item_quantity_' + counter]	= item.quantity();
+						data['item_price_' + counter]		= item.price();
+						data['item_currency_ ' + counter]	= simpleCart.currency().code;
+						data['item_tax_rate' + counter]		= item.get('taxRate') || simpleCart.taxRate();
+
+						// create array of extra options
+						simpleCart.each(item.options(), function (val,x,attr) {
+							// check to see if we need to exclude this from checkout
+							send = true;
+							simpleCart.each(settings.excludeFromCheckout, function (field_name) {
+								if (field_name === attr) { send = false; }
+							});
+							if (send) {
+								options_list.push(attr + ": " + val);
+							}
+						});
+
+						// add the options to the description
+						data['item_description_' + counter] = options_list.join(", ");
+					});
+
+					// return the data for the checkout form
+					return {
+						  action	: action
+						, method	: method
+						, data		: data
+					};
+
+
+				},
+
+
+				AmazonPayments: function (opts) {
+					// required options
+					if (!opts.merchant_signature) {
+						return simpleCart.error("No merchant signature provided for Amazon Payments");
+					}
+					if (!opts.merchant_id) {
+						return simpleCart.error("No merchant id provided for Amazon Payments");
+					}
+					if (!opts.aws_access_key_id) {
+						return simpleCart.error("No AWS access key id provided for Amazon Payments");
+					}
+
+
+					// build basic form options
+					var data = {
+							  aws_access_key_id:	opts.aws_access_key_id
+							, merchant_signature:	opts.merchant_signature
+							, currency_code:		simpleCart.currency().code
+							, tax_rate:				simpleCart.taxRate()
+							, weight_unit:			opts.weight_unit || 'lb'
+						},
+						action = "https://payments" + (opts.sandbox ? "-sandbox" : "") + ".amazon.com/checkout/" + opts.merchant_id,
+						method = opts.method === "GET" ? "GET" : "POST";
+
+
+					// add items to data
+					simpleCart.each(function (item,x) {
+						var counter = x+1,
+							options_list = [];
+						data['item_title_' + counter]			= item.get('name');
+						data['item_quantity_' + counter]		= item.quantity();
+						data['item_price_' + counter]			= item.price();
+						data['item_sku_ ' + counter]			= item.get('sku') || item.id();
+						data['item_merchant_id_' + counter]	= opts.merchant_id;
+						if (item.get('weight')) {
+							data['item_weight_' + counter]		= item.get('weight');
+						}
+						if (settings.shippingQuantityRate) {
+							data['shipping_method_price_per_unit_rate_' + counter] = settings.shippingQuantityRate;
+						}
+
+
+						// create array of extra options
+						simpleCart.each(item.options(), function (val,x,attr) {
+							// check to see if we need to exclude this from checkout
+							var send = true;
+							simpleCart.each(settings.excludeFromCheckout, function (field_name) {
+								if (field_name === attr) { send = false; }
+							});
+							if (send && attr !== 'weight' && attr !== 'tax') {
+								options_list.push(attr + ": " + val);
+							}
+						});
+
+						// add the options to the description
+						data['item_description_' + counter] = options_list.join(", ");
+					});
+
+					// return the data for the checkout form
+					return {
+						  action	: action
+						, method	: method
+						, data		: data
+					};
+
+				},
+
+
+				SendForm: function (opts) {
+					// url required
+					if (!opts.url) {
+						return simpleCart.error('URL required for SendForm Checkout');
+					}
+
+					// build basic form options
+					var data = {
+							  currency	: simpleCart.currency().code
+							, shipping	: simpleCart.shipping()
+							, tax		: simpleCart.tax()
+							, taxRate	: simpleCart.taxRate()
+							, itemCount : simpleCart.find({}).length
+						},
+						action = opts.url,
+						method = opts.method === "GET" ? "GET" : "POST";
+
+
+					// add items to data
+					simpleCart.each(function (item,x) {
+						var counter = x+1,
+							options_list = [],
+							send;
+						data['item_name_' + counter]		= item.get('name');
+						data['item_quantity_' + counter]	= item.quantity();
+						data['item_price_' + counter]		= item.price();
+
+						// create array of extra options
+						simpleCart.each(item.options(), function (val,x,attr) {
+							// check to see if we need to exclude this from checkout
+							send = true;
+							simpleCart.each(settings.excludeFromCheckout, function (field_name) {
+								if (field_name === attr) { send = false; }
+							});
+							if (send) {
+								options_list.push(attr + ": " + val);
+							}
+						});
+
+						// add the options to the description
+						data['item_options_' + counter] = options_list.join(", ");
+					});
+
+
+					// check for return and success URLs in the options
+					if (opts.success) {
+						data['return'] = opts.success;
+					}
+					if (opts.cancel) {
+						data.cancel_return = opts.cancel;
+					}
+
+					if (opts.extra_data) {
+						data = simpleCart.extend(data,opts.extra_data);
+					}
+
+					// return the data for the checkout form
+					return {
+						  action	: action
+						, method	: method
+						, data		: data
+					};
+				}
+
+
+			});
+
+
+			/*******************************************************************
+			 *	EVENT MANAGEMENT
+			 *******************************************************************/
+			eventFunctions = {
+
+				// bind a callback to an event
+				bind: function (name, callback) {
+					if (!isFunction(callback)) {
+						return this;
+					}
+
+					if (!this._events) {
+						this._events = {};
+					}
+					
+					// split by spaces to allow for multiple event bindings at once
+					var eventNameList = name.split(/ +/);
+					
+					// iterate through and bind each event
+					simpleCart.each( eventNameList , function( eventName ){
+						if (this._events[eventName] === true) {
+							callback.apply(this);
+						} else if (!isUndefined(this._events[eventName])) {
+							this._events[eventName].push(callback);
+						} else {
+							this._events[eventName] = [callback];
+						}
+					});
+
+					
+					return this;
+				},
+				
+				// trigger event
+				trigger: function (name, options) {
+					var returnval = true,
+						x,
+						xlen;
+
+					if (!this._events) {
+						this._events = {};
+					}
+					if (!isUndefined(this._events[name]) && isFunction(this._events[name][0])) {
+						for (x = 0, xlen = this._events[name].length; x < xlen; x += 1) {
+							returnval = this._events[name][x].apply(this, (options || []));
+						}
+					}
+					if (returnval === false) {
+						return false;
+					}
+					return true;
+				}
+
+			};
+			// alias for bind
+			eventFunctions.on = eventFunctions.bind;
+			simpleCart.extend(eventFunctions);
+			simpleCart.extend(simpleCart.Item._, eventFunctions);
+
+
+			// base simpleCart events in options
+			baseEvents = {
+				  beforeAdd				: null
+				, afterAdd				: null
+				, load					: null
+				, beforeSave			: null
+				, afterSave				: null
+				, update				: null
+				, ready					: null
+				, checkoutSuccess		: null
+				, checkoutFail			: null
+				, beforeCheckout		: null
+				, beforeRemove			: null
+			};
+			
+			// extend with base events
+			simpleCart(baseEvents);
+
+			// bind settings to events
+			simpleCart.each(baseEvents, function (val, x, name) {
+				simpleCart.bind(name, function () {
+					if (isFunction(settings[name])) {
+						settings[name].apply(this, arguments);
+					}
+				});
+			});
+
+			/*******************************************************************
+			 *	FORMATTING FUNCTIONS
+			 *******************************************************************/
+			simpleCart.extend({
+				toCurrency: function (number,opts) {
+					var num = parseFloat(number),
+						opt_input = opts || {},
+						_opts = simpleCart.extend(simpleCart.extend({
+							  symbol:		"$"
+							, decimal:		"."
+							, delimiter:	","
+							, accuracy:		2
+							, after: false
+						}, simpleCart.currency()), opt_input),
+
+						numParts = num.toFixed(_opts.accuracy).split("."),
+						dec = numParts[1],
+						ints = numParts[0];
+			
+					ints = simpleCart.chunk(ints.reverse(), 3).join(_opts.delimiter.reverse()).reverse();
+
+					return	(!_opts.after ? _opts.symbol : "") +
+							ints +
+							(dec ? _opts.decimal + dec : "") +
+							(_opts.after ? _opts.symbol : "");
+	
+				},
+
+
+				// break a string in blocks of size n
+				chunk: function (str, n) {
+					if (typeof n==='undefined') {
+						n=2;
+					}
+					var result = str.match(new RegExp('.{1,' + n + '}','g'));
+					return result || [];
+				}
+
+			});
+
+
+			// reverse string function
+			String.prototype.reverse = function () {
+				return this.split("").reverse().join("");
+			};
+
+
+			// currency functions
+			simpleCart.extend({
+				currency: function (currency) {
+					if (isString(currency) && !isUndefined(currencies[currency])) {
+						settings.currency = currency;
+					} else if (isObject(currency)) {
+						currencies[currency.code] = currency;
+						settings.currency = currency.code;
+					} else {
+						return currencies[settings.currency];
+					}
+				}
+			});
+
+
+			/*******************************************************************
+			 *	VIEW MANAGEMENT
+			 *******************************************************************/
+
+			simpleCart.extend({
+				// bind outlets to function
+				bindOutlets: function (outlets) {
+					simpleCart.each(outlets, function (callback, x, selector) {
+						
+						simpleCart.bind('update', function () {
+							simpleCart.setOutlet("." + namespace + "_" + selector, callback);
+						});
+					});
+				},
+
+				// set function return to outlet
+				setOutlet: function (selector, func) {
+					var val = func.call(simpleCart, selector);
+					if (isObject(val) && val.el) {
+						simpleCart.$(selector).html(' ').append(val);
+					} else if (!isUndefined(val)) {
+						simpleCart.$(selector).html(val);
+					}
+				},
+
+				// bind click events on inputs
+				bindInputs: function (inputs) {
+					simpleCart.each(inputs, function (info) {
+						simpleCart.setInput("." + namespace + "_" + info.selector, info.event, info.callback);
+					});
+				},
+
+				// attach events to inputs	
+				setInput: function (selector, event, func) {
+					simpleCart.$(selector).live(event, func);
+				}
+			});		
+
+
+			// class for wrapping DOM selector shit
+			simpleCart.ELEMENT = function (selector) {
+
+				this.create(selector);
+				this.selector = selector || null; // "#" + this.attr('id'); TODO: test length?
+			};
+
+			simpleCart.extend(selectorFunctions, {
+
+				"MooTools"		: {
+					text: function (text) {
+						return this.attr(_TEXT_, text);
+					},
+					html: function (html) {
+						return this.attr(_HTML_, html);
+					},
+					val: function (val) {
+						return this.attr(_VALUE_, val);
+					},
+					attr: function (attr, val) {
+						if (isUndefined(val)) {
+							return this.el[0] && this.el[0].get(attr);
+						}
+						
+						this.el.set(attr, val);
+						return this;
+					},
+					remove: function () {
+						this.el.dispose();
+						return null;
+					},
+					addClass: function (klass) {
+						this.el.addClass(klass);
+						return this;
+					},
+					removeClass: function (klass) {
+						this.el.removeClass(klass);
+						return this;
+					},
+					append: function (item) {
+						this.el.adopt(item.el);
+						return this;
+					},
+					each: function (callback) {
+						if (isFunction(callback)) {
+							simpleCart.each(this.el, function( e, i, c) {
+								callback.call( i, i, e, c );
+							});
+						}
+						return this;
+					},
+					click: function (callback) {
+						if (isFunction(callback)) {
+							this.each(function (e) {
+								e.addEvent(_CLICK_, function (ev) {
+									callback.call(e,ev);
+								});
+							});
+						} else if (isUndefined(callback)) {
+							this.el.fireEvent(_CLICK_);
+						}
+
+						return this;
+					},
+					live: function (	event,callback) {
+						var selector = this.selector;
+						if (isFunction(callback)) {
+							simpleCart.$("body").el.addEvent(event + ":relay(" + selector + ")", function (e, el) {
+								callback.call(el, e);
+							});
+						}
+					},
+					match: function (selector) {
+						return this.el.match(selector);
+					},
+					parent: function () {
+						return simpleCart.$(this.el.getParent());
+					},
+					find: function (selector) {
+						return simpleCart.$(this.el.getElements(selector));
+					},
+					closest: function (selector) {
+						return simpleCart.$(this.el.getParent(selector));
+					},
+					descendants: function () {
+						return this.find("*");
+					},
+					tag: function () {
+						return this.el[0].tagName;
+					},
+					submit: function (){
+						this.el[0].submit();
+						return this;
+					},
+					create: function (selector) {
+						this.el = $engine(selector);
+					}
+
+
+				},
+
+				"Prototype"		: {
+					text: function (text) {
+						if (isUndefined(text)) {
+							return this.el[0].innerHTML;
+						}
+						this.each(function (i,e) {
+							$(e).update(text);
+						});
+						return this;
+					},
+					html: function (html) {
+						return this.text(html);
+					},
+					val: function (val) {
+						return this.attr(_VALUE_, val);
+					},
+					attr: function (attr, val) {
+						if (isUndefined(val)) {
+							return this.el[0].readAttribute(attr);
+						}
+						this.each(function (i,e) {
+							$(e).writeAttribute(attr, val);
+						});
+						return this;
+					},
+					append: function (item) {
+						this.each(function (i,e) {
+							if (item.el) {
+								item.each(function (i2,e2) {
+									$(e).appendChild(e2);
+								});
+							} else if (isElement(item)) {
+								$(e).appendChild(item);
+							}
+						});
+						return this;
+					},
+					remove: function () {
+						this.each(function (i, e) {
+							$(e).remove();
+						});
+						return this;
+					},
+					addClass: function (klass) {
+						this.each(function (i, e) {
+							$(e).addClassName(klass);
+						});
+						return this;
+					},
+					removeClass: function (klass) {
+						this.each(function (i, e) {
+							$(e).removeClassName(klass);
+						});
+						return this;
+					},
+					each: function (callback) {
+						if (isFunction(callback)) {
+							simpleCart.each(this.el, function( e, i, c) {
+								callback.call( i, i, e, c );
+							});
+						}
+						return this;
+					},
+					click: function (callback) {
+						if (isFunction(callback)) {
+							this.each(function (i, e) {
+								$(e).observe(_CLICK_, function (ev) {
+									callback.call(e,ev);
+								});
+							});
+						} else if (isUndefined(callback)) {
+							this.each(function (i, e) {
+								$(e).fire(_CLICK_);
+							});
+						}
+						return this;
+					},
+					live: function (event,callback) {
+						if (isFunction(callback)) {
+							var selector = this.selector;
+							document.observe(event, function (e, el) {
+								if (el === $engine(e).findElement(selector)) {
+									callback.call(el, e);
+								}
+							});
+						}
+					},
+					parent: function () {
+						return simpleCart.$(this.el.up());
+					},
+					find: function (selector) {
+						return simpleCart.$(this.el.getElementsBySelector(selector));
+					},
+					closest: function (selector) {
+						return simpleCart.$(this.el.up(selector));
+					},
+					descendants: function () {
+						return simpleCart.$(this.el.descendants());
+					},
+					tag: function () {
+						return this.el.tagName;
+					},
+					submit: function() {
+						this.el[0].submit();
+					},
+
+					create: function (selector) {
+						if (isString(selector)) {
+							this.el = $engine(selector);
+						} else if (isElement(selector)) {
+							this.el = [selector];
+						}
+					}
+
+
+
+				},
+
+				"jQuery": {
+					passthrough: function (action, val) {
+						if (isUndefined(val)) {
+							return this.el[action]();
+						}
+						
+						this.el[action](val);
+						return this;
+					},
+					text: function (text) {
+						return this.passthrough(_TEXT_, text);
+					},
+					html: function (html) {
+						return this.passthrough(_HTML_, html);
+					},
+					val: function (val) {
+						return this.passthrough("val", val);
+					},
+					append: function (item) {
+						var target = item.el || item;
+						this.el.append(target);
+						return this;
+					},
+					attr: function (attr, val) {
+						if (isUndefined(val)) {
+							return this.el.attr(attr);
+						}
+						this.el.attr(attr, val);
+						return this;
+					},
+					remove: function () {
+						this.el.remove();
+						return this;
+					},
+					addClass: function (klass) {
+						this.el.addClass(klass);
+						return this;
+					},
+					removeClass: function (klass) {
+						this.el.removeClass(klass);
+						return this;
+					},
+					each: function (callback) {
+						return this.passthrough('each', callback);
+					},
+					click: function (callback) {
+						return this.passthrough(_CLICK_, callback);
+					},
+					live: function (event, callback) {
+						$engine(document).delegate(this.selector, event, callback);
+						return this;
+					},
+					parent: function () {
+						return simpleCart.$(this.el.parent());
+					},
+					find: function (selector) {
+						return simpleCart.$(this.el.find(selector));
+					},
+					closest: function (selector) {
+						return simpleCart.$(this.el.closest(selector));
+					},
+					tag: function () {
+						return this.el[0].tagName;
+					},
+					descendants: function () {
+						return simpleCart.$(this.el.find("*"));
+					},
+					submit: function() {
+						return this.el.submit();
+					},
+
+					create: function (selector) {
+						this.el = $engine(selector);
+					}
+				}
+			});
+			simpleCart.ELEMENT._ = simpleCart.ELEMENT.prototype;
+
+			// bind the DOM setup to the ready event
+			simpleCart.ready(simpleCart.setupViewTool);
+
+			// bind the input and output events
+			simpleCart.ready(function () {
+				simpleCart.bindOutlets({
+					total: function () {
+						return simpleCart.toCurrency(simpleCart.total());
+					}
+					, quantity: function () {
+						return simpleCart.quantity();
+					}
+					, items: function (selector) {
+						simpleCart.writeCart(selector);
+					}
+					, tax: function () {
+						return simpleCart.toCurrency(simpleCart.tax());
+					}
+					, taxRate: function () {
+						return simpleCart.taxRate().toFixed();
+					}
+					, shipping: function () {
+						return simpleCart.toCurrency(simpleCart.shipping());
+					}
+					, grandTotal: function () {
+						return simpleCart.toCurrency(simpleCart.grandTotal());
+					}
+				});
+				simpleCart.bindInputs([                        
+					   {  selector: 'checkout'
+						, event: 'click'
+						, callback: function () {
+							simpleCart.checkout();
+						}
+					}
+					, {	  selector: 'empty'
+						, event: 'click'
+						, callback: function () {
+							simpleCart.empty();
+						}
+					}
+					, {	  selector: 'increment'
+						, event: 'click'
+						, callback: function () {
+							simpleCart.find(simpleCart.$(this).closest('.itemRow').attr('id').split("_")[1]).increment();
+							simpleCart.update();
+						}
+					}
+					, {	  selector: 'decrement'
+						, event: 'click'
+						, callback: function () {
+							simpleCart.find(simpleCart.$(this).closest('.itemRow').attr('id').split("_")[1]).decrement();
+							simpleCart.update();
+						}
+					}
+					/* remove from cart */
+					, {	  selector: 'remove'
+						, event: 'click'
+						, callback: function () {
+							simpleCart.find(simpleCart.$(this).closest('.itemRow').attr('id').split("_")[1]).remove();
+						}
+					}
+
+					/* cart inputs */
+					, {	  selector: 'input'
+						, event: 'change'
+						, callback: function () {
+							var $input = simpleCart.$(this),
+								$parent = $input.parent(),
+								classList = $parent.attr('class').split(" ");
+							simpleCart.each(classList, function (klass) {
+								if (klass.match(/item-.+/i)) {
+									var field = klass.split("-")[1];
+									simpleCart.find($parent.closest('.itemRow').attr('id').split("_")[1]).set(field,$input.val());
+									simpleCart.update();
+									return;
+								}
+							});
+						}
+					}
+
+					/* here is our shelfItem add to cart button listener */
+					, { selector: 'shelfItem .item_add'
+						, event: 'click'
+						, callback: function () {
+							var $button = simpleCart.$(this),
+								fields = {};
+
+							$button.closest("." + namespace + "_shelfItem").descendants().each(function (x,item) {
+								var $item = simpleCart.$(item);
+
+								// check to see if the class matches the item_[fieldname] pattern
+								if ($item.attr("class") &&
+									$item.attr("class").match(/item_.+/) &&
+									!$item.attr('class').match(/item_add/)) {
+
+									// find the class name
+									simpleCart.each($item.attr('class').split(' '), function (klass) {
+										var attr,
+											val,
+											type;
+
+										// get the value or text depending on the tagName
+										if (klass.match(/item_.+/)) {
+											attr = klass.split("_")[1];
+											val = "";
+											switch($item.tag().toLowerCase()) {
+												case "input":
+												case "textarea":
+												case "select":
+													type = $item.attr("type");
+													if (!type || ((type.toLowerCase() === "checkbox" || type.toLowerCase() === "radio") && $item.attr("checked")) || type.toLowerCase() === "text" || type.toLowerCase() === "number") {
+														val = $item.val();
+													}				
+													break;
+												case "img":
+													val = $item.attr('src');
+													break;
+												default:
+													val = $item.text();
+													break;
+											}
+
+											if (val !== null && val !== "") {
+												fields[attr.toLowerCase()] = fields[attr.toLowerCase()] ? fields[attr.toLowerCase()] + ", " +  val : val;
+											}
+										}
+									});
+								}
+							});
+
+							// add the item
+							simpleCart.add(fields);
+						}
+					}
+				]);
+			});
+
+
+			/*******************************************************************
+			 *	DOM READY
+			 *******************************************************************/
+			// Cleanup functions for the document ready method
+			// used from jQuery
+			/*global DOMContentLoaded */
+			if (document.addEventListener) {
+				window.DOMContentLoaded = function () {
+					document.removeEventListener("DOMContentLoaded", DOMContentLoaded, false);
+					simpleCart.init();
+				};
+
+			} else if (document.attachEvent) {
+				window.DOMContentLoaded = function () {
+					// Make sure body exists, at least, in case IE gets a little overzealous (ticket #5443).
+					if (document.readyState === "complete") {
+						document.detachEvent("onreadystatechange", DOMContentLoaded);
+						simpleCart.init();
+					}
+				};
+			}
+			// The DOM ready check for Internet Explorer
+			// used from jQuery
+			function doScrollCheck() {
+				if (simpleCart.isReady) {
+					return;
+				}
+
+				try {
+					// If IE is used, use the trick by Diego Perini
+					// https://javascript.nwbox.com/IEContentLoaded/
+					document.documentElement.doScroll("left");
+				} catch (e) {
+					setTimeout(doScrollCheck, 1);
+					return;
+				}
+
+				// and execute any waiting functions
+				simpleCart.init();
+			}
+			
+			// bind ready event used from jquery
+			function sc_BindReady () {
+
+				// Catch cases where $(document).ready() is called after the
+				// browser event has already occurred.
+				if (document.readyState === "complete") {
+					// Handle it asynchronously to allow scripts the opportunity to delay ready
+					return setTimeout(simpleCart.init, 1);
+				}
+
+				// Mozilla, Opera and webkit nightlies currently support this event
+				if (document.addEventListener) {
+					// Use the handy event callback
+					document.addEventListener("DOMContentLoaded", DOMContentLoaded, false);
+
+					// A fallback to window.onload, that will always work
+					window.addEventListener("load", simpleCart.init, false);
+
+				// If IE event model is used
+				} else if (document.attachEvent) {
+					// ensure firing before onload,
+					// maybe late but safe also for iframes
+					document.attachEvent("onreadystatechange", DOMContentLoaded);
+
+					// A fallback to window.onload, that will always work
+					window.attachEvent("onload", simpleCart.init);
+
+					// If IE and not a frame
+					// continually check to see if the document is ready
+					var toplevel = false;
+
+					try {
+						toplevel = window.frameElement === null;
+					} catch (e) {}
+
+					if (document.documentElement.doScroll && toplevel) {
+						doScrollCheck();
+					}
+				}
+			}
+
+			// bind the ready event
+			sc_BindReady();
+
+			return simpleCart;
+		};
+
+
+	window.simpleCart = generateSimpleCart();
+
+}(window, document));
+
+
+$(document).ready(function () {
+        simpleCart({
+            cartColumns: [
+               {
+                 attr: "size"
+                , label: "size"
+            },
+               {
+                 attr: 'pageLink' 
+                , view:'link' 
+                , label:'Details' 
+            },
+               {
+                 attr: "name"
+                , label: false
+            }, {
+                 view: 'image'
+                , attr: 'thumb'
+                , label: false
+            },
+               { 
+                 view:"increment"
+                , labe: false 
+            },
+               { 
+                 view:"decrement"
+                , labe: false
+            },
+               {
+                attr: "quantity"
+                , label: "qty"
+            }, {
+                attr: "total"
+                , label: false
+                , view: 'currency'
+            }, {
+                view: "remove"
+                , label: false
+            },
+               ]
+        });
+simpleCart.bind( 'beforeCheckout' , function( data ){
+data.firstname = document.getElementById("firstname").value;
+data.lastname = document.getElementById("lastname").value;
+data.address = document.getElementById("address").value;
+data.email = document.getElementById("email").value;
+data.phone = document.getElementById("phone").value;
+data.comments = document.getElementById("comments").value;
+emailval = /\w+@\w+\.+[a-z]/;
+ 
+if(data.firstname === "" || data.lastname === "" || data.address === "" || 
+   data.phone === "" || data.comments === "" ){
+                              alert("Todos los campos deben llenarse");
+                                 return false;
+                          }
+else if(data.firstname.length>20){
+                              alert("nombre muy largo");  
+                                 return false;                           
+                          }
+          else if(!isNaN(data.firstname)){
+                              alert("nombre invalido");  
+                                 return false;                           
+                          }
+else if(data.lastname.length>20){
+                              alert("Apellido muy largo");  
+                                 return false;                           
+                          }
+          else if(!isNaN(data.lastname)){
+                              alert("Apellido invalido");  
+                                 return false;                           
+                          }
+else if(data.address.length>50){
+                              alert("direccion de entrega muy largo");  
+                                 return false;                           
+                          }
+else if(data.email.length>27){
+                              alert("Email muy largo");  
+                                 return false;                           
+                          }
+          else if(!emailval.test(data.email)){
+                              alert("Email no valido");  
+                                 return false;                           
+                          }
+else if(data.phone.length>11){
+                              alert("telefono  muy largo");  
+                                 return false;                           
+                          }
+else if(data.phone.length<8){
+                              alert("telefono  muy corto");  
+                                 return false;                           
+                          }
+         else if(isNaN(data.phone)){
+                              alert("ingrese un numero telefonico valido");  
+                                 return false;                           
+                          }
+else if(data.comments.length>60){
+                              alert("comentario  muy largo");  
+                                 return false;                           
+                          }
+});
+    });
