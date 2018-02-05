@@ -1,2 +1,0 @@
-/*form/env*/
-window.location="/";
