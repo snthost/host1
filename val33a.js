@@ -1,4 +1,4 @@
-class CampoNumerico {
+/*class CampoNumerico {
   constructor(selector) {
     this.nodo = document.querySelector(selector);
     this.valor = '';
@@ -39,7 +39,7 @@ class CampoNumerico {
       }
     }.bind(this));
   }
-}
+}*/
 new CampoNumerico('#atributoaletras');
 simpleCart.bind('beforeAdd', function (newitem) {
 simpleCart.each(function (cartitem) {
