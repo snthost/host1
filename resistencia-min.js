@@ -10,7 +10,7 @@ var namesArray = new Array();
 
 
 colorNameArray[0]=["black","brown","red","orange","yellow","green","blue","violet","grey","white","gold","silver"];
-colorNameArray[1]=["negro 0","marron 1","rojo 2 ","naranja 3","amarillo 4","verde 5","azul 6","violeta 7","gris 8","blanca 9","dorado -2","plateado -1"];
+colorNameArray[1]=["negro 0","marron 1","rojo 2 ","naranja 3","amarillo 4","verde 5","azul 6","violeta 7","gris 8","blanca 9","dorado -1","plateado -2"];
 
 
 var cart = String.fromCharCode(109, 101, 100, 105, 97, 47);
