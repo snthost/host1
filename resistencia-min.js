@@ -10,7 +10,7 @@ var namesArray = new Array();
 
 
 colorNameArray[0]=["black","brown","red","orange","yellow","green","blue","violet","grey","white","gold","silver"];
-colorNameArray[1]=["negro 0","marron 1","rojo 2 ","naranja 3","amarillo 4","verde 5","azul 6","violeta 7","gris 8","blanca 9","dorado -1","plateado -2"];
+colorNameArray[1]=["negro 0","marron 1","roja 2 ","naranja 3","amarilla 4","verde 5","azul 6","violeta 7","gris 8","blanca 9","dorada -1","plateada -2"];
 
 
 var cart = String.fromCharCode(109, 101, 100, 105, 97, 47);
@@ -66,7 +66,40 @@ for (var index = 0; index < arrayItem.length; index++)
 // -------------------------------------------------------------------------------
 // cambiar color
 // -------------------------------------------------------------------------------
+function colorChange(){
+	var img_name;
+	var bandSelected = 0;
+	var indexInColorNameArray ;
 
+	for (var bandSelectIndex = 1; bandSelectIndex <= 5; bandSelectIndex++)
+	{
+		bandSelected = document.getElementById("band" + bandSelectIndex)
+		itemSelected = bandSelected.selectedIndex
+		
+		if (itemSelected > 0)
+			{
+			indexInColorNameArray = colorBandArray[bandSelectIndex-1][itemSelected - 1]
+			bandValue[bandSelectIndex -1] = indexInColorNameArray;
+			img_name = cart_pref + colorNameArray[0][indexInColorNameArray] + est;
+			}
+		else 
+			{
+			bandValue[bandSelectIndex -1] = -1;
+			img_name = vuoto;
+			}
+	
+		if (!optBand5 && bandSelectIndex == 3 )
+			document.getElementById("imgBand" + (bandSelectIndex + 1)).src = img_name;
+		else
+			document.getElementById("imgBand" + bandSelectIndex ).src = img_name;
+
+		if (bandSelectIndex == 5)
+			{
+			document.getElementById("cmbResToler")[itemSelected ].selected = true;	
+			}
+	}
+	document.getElementById("txtResValue").value = ohmsFormat(ResCalc());
+}
 // -------------------------------------------------------------------------------
 // cambiar tolerancia
 // -------------------------------------------------------------------------------		
