@@ -66,40 +66,7 @@ for (var index = 0; index < arrayItem.length; index++)
 // -------------------------------------------------------------------------------
 // cambiar color
 // -------------------------------------------------------------------------------
-function colorChange(){
-	var img_name;
-	var bandSelected = 0;
-	var indexInColorNameArray ;
 
-	for (var bandSelectIndex = 1; bandSelectIndex <= 5; bandSelectIndex++)
-	{
-		bandSelected = document.getElementById("band" + bandSelectIndex)
-		itemSelected = bandSelected.selectedIndex
-		
-		if (itemSelected > 0)
-			{
-			indexInColorNameArray = colorBandArray[bandSelectIndex-1][itemSelected - 1]
-			bandValue[bandSelectIndex -1] = indexInColorNameArray;
-			img_name = cart_pref + colorNameArray[0][indexInColorNameArray] + est;
-			}
-		else 
-			{
-			bandValue[bandSelectIndex -1] = -1;
-			img_name = vuoto;
-			}
-	
-		if (!optBand5 && bandSelectIndex == 3 )
-			document.getElementById("imgBand" + (bandSelectIndex + 1)).src = img_name;
-		else
-			document.getElementById("imgBand" + bandSelectIndex ).src = img_name;
-
-		if (bandSelectIndex == 5)
-			{
-			document.getElementById("cmbResToler")[itemSelected ].selected = true;	
-			}
-	}
-	document.getElementById("txtResValue").value = ohmsFormat(ResCalc());
-}
 // -------------------------------------------------------------------------------
 // cambiar tolerancia
 // -------------------------------------------------------------------------------		
