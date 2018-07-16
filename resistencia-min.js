@@ -10,7 +10,8 @@ var namesArray = new Array();
 
 
 colorNameArray[0]=["black","brown","red","orange","yellow","green","blue","violet","grey","white","gold","silver"];
-colorNameArray[1]=["negra","marron","roja","naranja","amarilla","verde","azul","violeta","gris","blanca","dorada","plateada"];
+colorNameArray[1]=["negro 0","marron 1","roja 2 ","naranja 3","amarilla 4","verde 5","azul 6","violeta 7","gris 8","blanca 9","dorada 0.01","plateada 0.1"];
+
 
 var cart = String.fromCharCode(109, 101, 100, 105, 97, 47);
 var est = String.fromCharCode(46, 112, 110, 103);
@@ -21,11 +22,10 @@ colorBandArray[2]=[0,1,2,3,4,5,6,7,8,9];
 colorBandArray[3]=[0,1,2,3,4,5,6,7,10,11];
 colorBandArray[4]=[11,10,2,1,5,6,7,8];
 
-namesArray[1]=["Banda","resistencias" ];
+namesArray[1]=["Banda","resistencias"];
 
 var vuoto = cart + "band_blank" + est;
 var cart_pref = cart + "band_";
-
 // -------------------------------------------------------------------------------
 // Agregar bandas de color de opción en el campo de selección
 // -------------------------------------------------------------------------------
@@ -52,7 +52,6 @@ LanguageShowHide()
 
 
 }
-
 // seleccion de bandas
 // -------------------------z
 function selectAddOptions(selectObj, arrayItem, arrayName ){
@@ -64,7 +63,6 @@ for (var index = 0; index < arrayItem.length; index++)
 	selectObj.add(option);
 	}
 }
-
 // -------------------------------------------------------------------------------
 // cambiar color
 // -------------------------------------------------------------------------------
@@ -94,8 +92,7 @@ function colorChange(){
 			document.getElementById("imgBand" + (bandSelectIndex + 1)).src = img_name;
 		else
 			document.getElementById("imgBand" + bandSelectIndex ).src = img_name;
-	
-	
+
 		if (bandSelectIndex == 5)
 			{
 			document.getElementById("cmbResToler")[itemSelected ].selected = true;	
@@ -124,11 +121,8 @@ function changeToler(choice){
 // Retroceso
 // -------------------------------------------------------------------------------
 function returnResValue(event) {
-
 if (event.keyCode == 13) valueToColors();
-	
 }
-
 // -------------------------------------------------------------------------------
 // valor de los colores
 // -------------------------------------------------------------------------------
@@ -314,7 +308,7 @@ return ohms;
 }
 
 // -------------------------------------------------------------------------------
-// Ohms Format
+// formato de ohm
 // -------------------------------------------------------------------------------
 function ohmsFormat(ohmsValue){
 	if (ohmsValue >= 1e6)
