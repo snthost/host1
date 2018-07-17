@@ -10,7 +10,7 @@ var namesArray = new Array();
 
 
 colorNameArray[0]=["black","brown","red","orange","yellow","green","blue","violet","grey","white","gold","silver"];
-colorNameArray[1]=["negro 0","marron 1","roja 2 ","naranja 3","amarilla 4","verde 5","azul 6","violeta 7","gris 8","blanca 9","dorada -1","plateada -2"];
+colorNameArray[1]=["negro +0","marron +1","roja +2 ","naranja +3","amarilla +4","verde +5","azul +6","violeta +7","gris +8","blanca +9","dorada -1","plateada -2"];
 
 
 var cart = String.fromCharCode(109, 101, 100, 105, 97, 47);
@@ -20,9 +20,9 @@ colorBandArray[0]=[0,1,2,3,4,5,6,7,8,9];
 colorBandArray[1]=[0,1,2,3,4,5,6,7,8,9];
 colorBandArray[2]=[0,1,2,3,4,5,6,7,8,9];
 colorBandArray[3]=[0,1,2,3,4,5,6,7,10,11];
-colorBandArray[4]=[11,10,2,1,5,6,7,8];
+colorBandArray[4]=[1,10,11];
 
-namesArray[1]=["Banda","resistencias"];
+namesArray[1]=["Bandas","calculo de resistencias de 5 bandas"];
 
 var vuoto = cart + "band_blank" + est;
 var cart_pref = cart + "band_";
@@ -50,7 +50,6 @@ document.getElementById("cmbResToler")[0].selected = true;
 
 LanguageShowHide()
 
-
 }
 // seleccion de bandas
 // -------------------------z
@@ -71,19 +70,16 @@ function colorChange(){
 	var bandSelected = 0;
 	var indexInColorNameArray ;
 
-	for (var bandSelectIndex = 1; bandSelectIndex <= 5; bandSelectIndex++)
-	{
+	for (var bandSelectIndex = 1; bandSelectIndex <= 5; bandSelectIndex++){
 		bandSelected = document.getElementById("band" + bandSelectIndex)
 		itemSelected = bandSelected.selectedIndex
-		
-		if (itemSelected > 0)
-			{
+
+		if (itemSelected > 0){
 			indexInColorNameArray = colorBandArray[bandSelectIndex-1][itemSelected - 1]
 			bandValue[bandSelectIndex -1] = indexInColorNameArray;
 			img_name = cart_pref + colorNameArray[0][indexInColorNameArray] + est;
 			}
-		else 
-			{
+		else {
 			bandValue[bandSelectIndex -1] = -1;
 			img_name = vuoto;
 			}
@@ -93,8 +89,7 @@ function colorChange(){
 		else
 			document.getElementById("imgBand" + bandSelectIndex ).src = img_name;
 
-		if (bandSelectIndex == 5)
-			{
+		if (bandSelectIndex == 5){
 			document.getElementById("cmbResToler")[itemSelected ].selected = true;	
 			}
 	}
@@ -118,7 +113,7 @@ function changeToler(choice){
 	document.getElementById("band5").selectedIndex = choice.selectedIndex ;		
 }
 // -------------------------------------------------------------------------------
-// Retroceso
+// valor de resistencias en texto
 // -------------------------------------------------------------------------------
 function returnResValue(event) {
 if (event.keyCode == 13) valueToColors();
@@ -311,22 +306,23 @@ return ohms;
 // formato de ohm
 // -------------------------------------------------------------------------------
 function ohmsFormat(ohmsValue){
-	if (ohmsValue >= 1e6)
-		{
-		ohmsValue /=1e6;
+	if (ohmsValue >= 1e9){
+		ohmsValue /=1e9;
+		return ""+ ohmsValue + " Gohms";
+		}
+	else if (ohmsValue >= 1e6){
+		ohmsValue /=1e6
 		return ""+ ohmsValue + " Mohms";
 		}
-	else if (ohmsValue >= 1e3)
-		{
+
+	else if (ohmsValue >= 1e3){
 		ohmsValue /=1e3
 		return ""+ ohmsValue + " Kohms";
 		}
-	else if (ohmsValue == 0)
-		{
+	else if (ohmsValue == 0){
 		 return ""	
 		}
-	else 
-		{
+	else {
 		return "" + ohmsValue + " ohms";
 		}
 }		
