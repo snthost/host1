@@ -8,10 +8,22 @@ position:absolute;
 background:transparent;
 border:0;
 height:50px;
-width:190px;
+width:220px;
 color:#c2c9eb;
 font-size:30px;
 font-family: &quot;verdana&quot; , sans-serif;
+border-radius:0 30px 30px 0;
+color:#6fa8dc;
+transition:all 3s
+}
+.form1:hover{
+background:rgba(0,0,0,0.3);
+color:#00be01;
+transition:all 3s
+border-radius:0 50px 50px 0;
+-webkit-box-shadow:0 2px 2px #00be01;
+-moz-box-shadow:0 2px 2px #00be01;
+box-shadow:0 2px 20px #00be01;
 }
 .tam1{
 height:55px;
@@ -24,17 +36,40 @@ width:270px;
 color:#c2c9eb;
 font-size:50px;
 font-family: &quot;verdana&quot; , sans-serif;
+border-radius:0 50px 50px 0;
+transition:all 3s
+}
+.cuadro1:hover{
+background:rgba(0,0,0,0.3);
+color:#00be01;
+transition:all 3s
+border-radius:0 50px 50px 0;
+-webkit-box-shadow:0 2px 2px #00be01;
+-moz-box-shadow:0 2px 2px #00be01;
+box-shadow:0 2px 20px #00be01;
 }
 .cuadro2{
 background:transparent;
 border:0;
 height:50px;
-width:120px;
+width:125px;
 color:#c2c9eb;
 font-size:40px;
 font-family: &quot;verdana&quot; , sans-serif;
+border-radius:0 50px 50px 0;
+transition:all 3s
+}
+.cuadro2:hover{
+background:rgba(0,0,0,0.3);
+color:#00be01;
+transition:all 3s
+border-radius:0 50px 50px 0;
+-webkit-box-shadow:0 2px 2px #00be01;
+-moz-box-shadow:0 2px 2px #00be01;
+box-shadow:0 2px 20px #00be01;
 }
 </style>
+<p>
 <h2 id="lblTitCalc"></h2>
 <!------------------------------------------------------
    seleccion de 4 o 5 bandas
@@ -48,13 +83,15 @@ font-family: &quot;verdana&quot; , sans-serif;
 ------------------------------------------------------->
 <label for="txtResValue" style="color:#c2c9eb;font-size:35px;font-family: &quot;verdana&quot; , sans-serif;" id="txtResValueEti">VALOR:</label> 
 <input id="txtResValue" class="cuadro1" onkeypress="returnResValue(event)" type="text">
+<p>
 <label for="cmbResToler" style="color:#c2c9eb;font-size:35px;font-family: &quot;verdana&quot; , sans-serif;" id="cmbResTolerEti">TOLERANCIA:</label> 
 <select id="cmbResToler" class="cuadro2" onchange="changeToler(this)">
-<option value="" selected="selected">selec</option>
+<option value="" class="form1" selected="selected"> en %</option>
 <option>1%</option>
 <option>5%</option>
 <option>10%</option>
 </select>
+</p>
 <!--fondo superior-->
 <table>
 <td>
@@ -136,4 +173,3 @@ banda 5
 <img style="height:150px;" src="https://snthost.github.io/host1/media/body_botton.png">
 </td> 
 </table>
-
