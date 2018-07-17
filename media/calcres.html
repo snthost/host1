@@ -1,0 +1,104 @@
+<script type="text/javascript" src="ResCalculatorSp_pgm_ResCalculatorSp.js"></script>
+<h2 id="lblTitCalc"></h2>
+<!------------------------------------------------------
+   seleccion de 4 o 5 bandas
+------------------------------------------------------->
+<input id="optBand5" name="optBand" onchange="bandChange()" checked="checked" type="radio">
+<!------------------------------------------------------
+   calculo de bandas de resistencias
+------------------------------------------------------->
+<!--fondo superior-->
+<table>
+<td>
+<img src="https://2.bp.blogspot.com/-SR7ZPLai9iY/W00ETVT7hjI/AAAAAAAACf8/RwNaRHUhN3AO1rao94wUmmWDMdAjs1KEgCLcBGAs/s1600/body_top.png">
+</td> 
+<!------------------------------------------------------
+banda 1
+------------------------------------------------------->
+<tr> 
+<td>
+<img id="imgBand1" src="https://clientsntmail.000webhostapp.com/media/band_blank.png" onclick="valueToColors()">
+</td> 
+<td>
+<span id="titBand1">Banda 1:</span>
+<select id="band1" onchange="colorChange()">
+<option value="" selected="selected">Banda 1</option>
+</select>
+</td>
+</tr> 
+<!------------------------------------------------------
+banda 2
+------------------------------------------------------->
+<tr> 
+<td>
+<img id="imgBand2" src="https://clientsntmail.000webhostapp.com/media/band_blank.png" onclick="valueToColors()">
+</td>  
+<td>
+<span id="titBand2">Banda 2:</span>
+<select id="band2" onchange="colorChange()">
+<option value="" selected="selected">Banda 2</option>
+</select>
+</td> 
+</tr>
+<!------------------------------------------------------
+banda 3
+------------------------------------------------------->
+<tr> 
+<td>
+<img id="imgBand3" src="https://clientsntmail.000webhostapp.com/media/band_blank.png" onclick="valueToColors()">
+</td> 
+</td>
+<td>
+<span id="titBand3">Banda 3:</span>
+<select id="band3" onchange="colorChange()">
+<option value="" selected="selected">Banda 3</option>
+</select>
+</td> 
+</tr>
+<!------------------------------------------------------
+banda 4
+------------------------------------------------------->
+<tr> 
+<td>
+<img id="imgBand4" src="https://clientsntmail.000webhostapp.com/media/band_blank.png" onclick="valueToColors()">
+</td> 
+<td>
+<span id="titBand4">Banda 4:</span>
+<select id="band4" onchange="colorChange()">
+<option value="" selected="selected">Banda 4</option>
+</select>
+</td> 
+</tr>
+<!------------------------------------------------------
+banda 5
+------------------------------------------------------->
+<tr> 
+<td>
+<img id="imgBand5" src="https://clientsntmail.000webhostapp.com/media/band_blank.png" onclick="valueToColors()">
+</td> 
+<td>
+<span id="titBand5">Banda 5:</span>
+<select id="band5" onchange="colorChange()">
+<option value="" selected="selected">Banda 5</option>
+</select>
+</td> 
+</tr>
+<!--fondo inferior--> 
+<td>
+<img src="https://2.bp.blogspot.com/-MrIaG5roiPo/W00ETdDvzCI/AAAAAAAACf4/AGKFIXr1lGkCHaE5TD4m3DBKvG4qG_N3wCLcBGAs/s1600/body_botton.png">
+</td> 
+</table>
+<!------------------------------------------------------
+   tolerancia de la resistencias
+------------------------------------------------------->
+<label for="txtResValue" id="txtResValueEti">el valor es de::</label> 
+<input id="txtResValue" onkeypress="returnResValue(event)" type="text">
+<label for="cmbResToler" id="cmbResTolerEti">Con tolerancia de:</label> 
+<select id="cmbResToler" onchange="changeToler(this)">
+<option value="" selected="selected">seleccionar</option>
+<option>1%</option>
+<option>5%</option>
+<option>10%</option>
+</select>
+
+
