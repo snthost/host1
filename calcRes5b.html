@@ -1,12 +1,16 @@
 ﻿<script type="text/javascript" src="https://snthost.github.io/host1/media/resistencia-min.js"></script>
 <style>
-body{background:transparent;
+body{
+background:transparent;
+position:absolute;
 }
 .form1{
 background:transparent;
 border:0;
 height:50px;
 width:150px;
+color: #6fa8dc;
+font-size:30px;
 }
 .tam1{
 height:55px;
@@ -20,6 +24,18 @@ height:55px;
 <!------------------------------------------------------
    calculo de bandas de resistencias
 ------------------------------------------------------->
+<!------------------------------------------------------
+   tolerancia de la resistencias
+------------------------------------------------------->
+<label for="txtResValue" id="txtResValueEti">el valor es de::</label> 
+<input id="txtResValue" onkeypress="returnResValue(event)" type="text">
+<label for="cmbResToler" id="cmbResTolerEti">Con tolerancia de:</label> 
+<select id="cmbResToler" onchange="changeToler(this)">
+<option value="" selected="selected">seleccionar</option>
+<option>1%</option>
+<option>5%</option>
+<option>10%</option>
+</select>
 <!--fondo superior-->
 <table>
 <td>
@@ -101,15 +117,4 @@ banda 5
 <img style="height:150px;" src="https://snthost.github.io/host1/media/body_botton.png">
 </td> 
 </table>
-<!------------------------------------------------------
-   tolerancia de la resistencias
-------------------------------------------------------->
-<label for="txtResValue" id="txtResValueEti">el valor es de::</label> 
-<input id="txtResValue" onkeypress="returnResValue(event)" type="text">
-<label for="cmbResToler" id="cmbResTolerEti">Con tolerancia de:</label> 
-<select id="cmbResToler" onchange="changeToler(this)">
-<option value="" selected="selected">seleccionar</option>
-<option>1%</option>
-<option>5%</option>
-<option>10%</option>
-</select>
+
