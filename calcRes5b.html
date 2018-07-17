@@ -16,6 +16,24 @@ font-family: &quot;verdana&quot; , sans-serif;
 .tam1{
 height:55px;
 }
+.cuadro1{
+background:transparent;
+border:0;
+height:50px;
+width:300px;
+color: #6fa8dc;
+font-size:50px;
+font-family: &quot;verdana&quot; , sans-serif;
+}
+.cuadro2{
+background:transparent;
+border:0;
+height:50px;
+width:150px;
+color: #6fa8dc;
+font-size:40px;
+font-family: &quot;verdana&quot; , sans-serif;
+}
 </style>
 <h2 id="lblTitCalc"></h2>
 <!------------------------------------------------------
@@ -28,10 +46,10 @@ height:55px;
 <!------------------------------------------------------
    tolerancia de la resistencias
 ------------------------------------------------------->
-<label for="txtResValue" id="txtResValueEti">el valor es de::</label> 
-<input id="txtResValue" onkeypress="returnResValue(event)" type="text">
-<label for="cmbResToler" id="cmbResTolerEti">Con tolerancia de:</label> 
-<select id="cmbResToler" onchange="changeToler(this)">
+<label for="txtResValue" style="color: #6fa8dc;font-size:35px;" id="txtResValueEti">el valor es de:</label> 
+<input id="txtResValue" class="cuadro1" onkeypress="returnResValue(event)" type="text">
+<label for="cmbResToler" style="color: #6fa8dc;font-size:35px;" id="cmbResTolerEti">Tolerancia de:</label> 
+<select id="cmbResToler" class="cuadro2" onchange="changeToler(this)">
 <option value="" selected="selected">seleccionar</option>
 <option>1%</option>
 <option>5%</option>
