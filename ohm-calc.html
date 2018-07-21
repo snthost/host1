@@ -1,0 +1,127 @@
+<html prefix="og: http://ogp.me/ns#" class="has-cookie-bar cookie-bar-bottom-bar cookie-bar-bar" lang="es-ES">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="calc-ohm.js"></script>
+<style>
+body{
+background:transparent;
+float:left;
+margin:10px 170px;
+height:850px;
+width:550px;}
+
+.tit{
+color:#c2c9eb;
+font-size:40px;
+}
+
+.cuadro{
+border:0;
+height:62px;
+width:270px;
+color:#c2c9eb;
+font-size:50px;
+font-family: &quot;verdana&quot; , sans-serif;
+border-radius:0 50px 50px 0;
+transition:all 3s;
+}
+
+.cuadro:hover{
+background:rgba(0,0,0,0.3);
+color:#00be01;
+transition:all 3s;
+border-radius:0 50px 50px 0;
+box-shadow:0 2px 20px #00be01;
+}
+
+.var1{
+border:0;
+color:#c2c9eb;
+font-size:38px;
+font-family: &quot;verdana&quot; , sans-serif;
+border-radius:20px;
+transition:all 3s;
+}
+
+.var1:hover{
+background:rgba(0,0,0,0.3);
+color:#00be01;
+transition:all 3s;
+border-radius:0 50px 50px 0;
+box-shadow:0 2px 20px #00be01;
+}
+
+</style>
+</p><div style="text-align:center">
+<table id="OhmLawDesignTable" style="text-align:center; border: 0px;">
+<p id="mensaje" style="color:#c2c9eb; font-size:50px;"><i>Introducir solo dos parámetros para efectuar el cálculo.</i></p>
+	<tbody><tr>
+		<td class="simbolo"><img src="Calculadora%20de%20la%20ley%20de%20Ohm%20|%20Inventable_files/V_symbol_low.png"></td> 
+		<td class="tit">Tensión<br>
+			<input class="cuadro" id="txtTension" name="tension" type="number" placeholder="valor">
+			<select class="var1" id="cmbTension">
+				<option selected="selected">V
+				</option><option>KV
+			</option></select>
+		</td>
+	</tr>
+	<tr>
+		<td class="simbolo"><img src="Calculadora%20de%20la%20ley%20de%20Ohm%20|%20Inventable_files/I_symbol_low.png"></td> 
+		<td class="tit">Corriente<br>
+			<input id="txtCorriente" class="cuadro" name="corriente" type="number" placeholder="valor">
+			<select class="var1" id="cmbCorriente">
+				<option selected="selected">A
+				</option><option>mA
+			</option></select>
+		</td>
+	</tr>		
+	
+	<tr>
+		<td class="simbolo"><img src="Calculadora%20de%20la%20ley%20de%20Ohm%20|%20Inventable_files/R_symbol_low.png"></td> 
+		<td class="tit">Resistencia<br>
+			<input id="txtResistencia" class="cuadro" name="resistencia" type="number" placeholder="valor">
+			<select class="var1" id="cmbResistencia">
+				<option selected="selected">Ω
+				</option><option>KΩ
+				</option><option>MΩ
+			</option></select>
+		</td>
+	</tr>						
+	
+	<tr>
+		<td class="simbolo"><img src="Calculadora%20de%20la%20ley%20de%20Ohm%20|%20Inventable_files/P_symbol_low.png"></td> 
+		<td class="tit">Potencia<br>
+			<input id="txtPotencia" class="cuadro" name="potencia" type="number" placeholder="valor">
+			<select class="var1" id="cmbPotencia">
+				<option selected="selected">W</option>
+                    <option>mW</option>
+                    <option>KW</option>
+                    </select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="simbolo">
+			<input src="Calculadora%20de%20la%20ley%20de%20Ohm%20|%20Inventable_files/clear.png" onclick="ClearData()" type="image" border="”0″">	
+		</td>
+		
+		<td>
+			<input src="Calculadora%20de%20la%20ley%20de%20Ohm%20|%20Inventable_files/calc.png" onclick="CalcFormula()" type="image" border="”0″">	
+		</td>				
+	</tr>			
+</tbody></table>
+</div>
+<p></p>
+<p>&nbsp;</p>
+<h3 class="tit">Fórmulas usadas para los cálculos</h3>
+<figcaption class="tit">Corriente eléctrica</figcaption>
+<figure id="attachment_1871" style="width: 286px" class="wp-caption aligncenter"><img class="size-full wp-image-1871" src="Calculadora%20de%20la%20ley%20de%20Ohm%20|%20Inventable_files/formulas_I.png" alt="Ley de Ohm - fórmulas de la corriente eléctrica" width="286" height="79">
+</figure>
+<figcaption class="tit">Tensión eléctrica</figcaption>
+<figure id="attachment_1870" style="width: 286px" class="wp-caption aligncenter"><img class="size-full wp-image-1870" src="Calculadora%20de%20la%20ley%20de%20Ohm%20|%20Inventable_files/formulas_V.png" alt="Ley de Ohm - fórmulas de la tensión eléctrica" width="286" height="79">
+</figure>
+<figcaption class="tit">Resistencia eléctrica</figcaption>
+<figure id="attachment_1869" style="width: 286px" class="wp-caption aligncenter"><img class="size-full wp-image-1869" src="Calculadora%20de%20la%20ley%20de%20Ohm%20|%20Inventable_files/formulas_R.png" alt="Ley de Ohm - fórmulas de la resistencia eléctrica" width="286" height="79">
+</figure>
+<figcaption class="tit">Potencia eléctrica</figcaption>
+<figure id="attachment_1868" style="width: 286px" class="wp-caption aligncenter"><img class="size-full wp-image-1868" src="Calculadora%20de%20la%20ley%20de%20Ohm%20|%20Inventable_files/formulas_P.png" alt="Formulas de potencia eléctrica" width="286" height="80">
+</figure>
