@@ -1,0 +1,221 @@
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script src="https://snthost.github.io/host1/media/cap-calc/calc-cap.js" type="text/javascript"></script>
+<article id="post-2588" class="post-2588 page type-page status-publish hentry">
+<style>
+body{
+background:transparent;
+float:left;
+margin:10px 170px;
+height:850px;
+width:650px;}
+.tit{
+background:transparent;
+color:#c2c9eb;
+font-size:40px;
+}
+.tit1{
+background:transparent;
+color:#c2c9eb;
+font-size:20px;
+}
+.cuadro{
+background:transparent;
+border:0;
+height:62px;
+width:270px;
+color:#c2c9eb;
+font-size:50px;
+font-family: &quot;verdana&quot; , sans-serif;
+border-radius:0 50px 50px 0;
+transition:all 3s;
+}
+.cuadro:hover{
+background:rgba(0,0,0,0.3);
+color:#00be01;
+transition:all 3s;
+border-radius:0 50px 50px 0;
+box-shadow:0 2px 20px #00be01;
+}
+.var1{
+background:transparent;
+border:0;
+color:#c2c9eb;
+font-size:38px;
+font-family: &quot;verdana&quot; , sans-serif;
+border-radius:20px;
+transition:all 3s;
+}
+.var1:hover{
+background:rgba(0,0,0,0.3);
+color:#00be01;
+transition:all 3s;
+border-radius:0 50px 50px 0;
+box-shadow:0 2px 20px #00be01;
+}
+/*#####################################*/
+input{
+	text-align:center;
+	font-size:50px;
+	color:#c2c9eb; 
+}
+select {
+	font-size: 150%;
+}
+#txtCapCode{
+	width: 200px;
+	border:none;
+	background:transparent;
+}
+#capacitor{
+	background-image:url("https://snthost.github.io/host1/media/cap-calc//capacitor.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	height:450px;
+	line-height:60px;
+}	
+	
+</style>
+</p><div style="text-align:center;"> 
+
+<!-------------------------------------------------------
+		Capacitor design and color input field select
+-------------------------------------------------------->
+<div id="capacitor"><p>&nbsp;</p>
+	<p><input id="txtCapCode" value="valor" type="text"></p>
+</div>
+<input onclick="codeToValue()" src="https://snthost.github.io/host1/media/cap-calc/arrow_down.png" type="image">	
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input onclick="valueToCode()" src="https://snthost.github.io/host1/media/cap-calc/arrow_up.png" type="image">	
+<p><strong class="tit">Valor:</strong>
+<input  class="cuadro" id="txtCapValue" value="valor" >
+<select class="var1"  id="cmbMultiplo">
+<option>pF</option>
+<option selected="selected">nF</option>
+<option>µF</option>
+</select>
+</p>
+
+<p><strong class="tit">Tolerancia:</strong>
+	<select class="var1" id="cmbTolerancia">
+		<option selected="selected">select</option>
+<option>+/- 0.10pF</option>
+<option>+/- 0.25pF</option>
+<option>+/- 0.5pF</option>
+<option>+/- 0.5%</option>
+<option>+/- 1%</option>
+<option>+/- 2%</option>
+<option>+/- 3%</option>
+<option >+/- 5%</option>
+<option>+/- 10%</option>
+<option>+/- 20%</option>
+<option>+/- 30%</option>
+<option>+100%,-0%</option>
+<option>+80%,-20%</option>
+</select>
+</p>
+<p><strong class="tit">Voltaje máxima:</strong>
+	<select class="var1" id="cmbTensionMax">
+		<option selected="selected">select</option>
+<option>4V DC</option>
+<option>5.5V DC</option>
+<option>6.3V DC</option>
+<option>10V DC	</option>
+<option>16V DC</option>
+<option>25V DC</option>
+<option>50V DC</option>
+<option>63V DC	</option>
+<option>80V DC</option>
+<option>100V DC</option>
+<option>110V DC</option>
+<option>125V DC	</option>
+<option>160V DC</option>
+<option>180V DC</option>
+<option>200V DC</option>
+<option>220V DC</option>
+<option>250V DC</option>
+<option>315V DC	</option>
+<option>350V DC</option>
+<option>400V DC</option>
+<option>450V DC</option>
+<option>500V DC</option>
+<option >630V DC</option>
+<option>1000V DC</option>
+</select>
+</p>
+</div>
+<figure id="attachment_2612" style="width: 362px" class="wp-caption aligncenter"><img class="wp-image-2612 " src="https://snthost.github.io/host1/media/cap-calc/capacitores_tipos_codigos.png" alt="Tipos de códigos que la calculadora es en grado de decodificar." srcset="" sizes="(max-width: 362px) 100vw, 362px" width="362" height="467">
+</figure>
+<h3 class="tit">Tablas usadas para calcular los códigos de tensión y tolerancia</h3>
+<h4 style="color:#c2c9eb; font-size:30px;">Códigos para la tolerancia</h4>
+<table border="1" width="480" align="center" class="tit1">
+<tbody>
+<tr align="center">
+<td>B = +/- 0.10pF</td>
+<td>C = +/- 0.25pF</td>
+<td>D = +/- 0.50pF</td>
+</tr>
+<tr align="center">
+<td>E = +/- 0.5%</td>
+<td>F = +/- 1%</td>
+<td>G = +/- 2%</td>
+</tr>
+<tr align="center">
+<td>H = +/- 3%</td>
+<td>J = +/- 5%</td>
+<td>K = +/- 10%</td>
+</tr>
+<tr align="center">
+<td>M = +/- 20%</td>
+<td>N = +/- 30%</td>
+<td>P = +100% / -0%</td>
+</tr>
+<tr align="center">
+<td>Z = +80% / -20%</td>
+</tr>
+</tbody>
+</table>
+<h4 style="color:#c2c9eb; font-size:30px;">Códigos para la tensión máxima</h4>
+<table border="1" width="480" align="center" class="tit1">
+<tbody>
+<tr align="center">
+<td>0G = 4VDC</td>
+<td>0L = 5.5VDC</td>
+<td>0J = 6.3VDC</td>
+</tr>
+<tr align="center">
+<td>1A = 10VDC</td>
+<td>1C = 16VDC</td>
+<td>1E = 25VDC</td>
+</tr>
+<tr align="center">
+<td>1H = 50VDC</td>
+<td>1J = 63VDC</td>
+<td>1K = 80VDC</td>
+</tr>
+<tr align="center">
+<td>2A = 100VDC</td>
+<td>2Q = 110VDC</td>
+<td>2B = 125VDC</td>
+</tr>
+<tr align="center">
+<td>2C = 160VDC</td>
+<td>2Z = 180VDC</td>
+<td>2D = 200VDC</td>
+</tr>
+<tr align="center">
+<td>2P = 220VDC</td>
+<td>2E = 250VDC</td>
+<td>2F = 315VDC</td>
+</tr>
+<tr align="center">
+<td>2V = 350VDC</td>
+<td>2G = 400VDC</td>
+<td>2W = 450VDC</td>
+</tr>
+<tr align="center">
+<td>2H = 500VDC</td>
+<td>2J = 630VDC</td>
+<td>3A = 1000VDC</td>
+</tr>
+</tbody>
+</table>
