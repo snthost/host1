@@ -1401,7 +1401,7 @@ li.sale-noti > a {
   .wrap-content-slide1 .xl-text1 {
     font-size: 50px;
   }
-
+column-2
   .wrap-content-slide1 .m-text27,
   .wrap-content-slide1 .m-text1 {
     font-size: 16px;
@@ -2043,7 +2043,7 @@ iframe {
   border-bottom: 1px solid #fff;
 }
 
-.table-shopping-cart .column-1 {
+.table-shopping-cart .column-1 .item-name{
   width: 225px;
   padding-left: 50px;
 }
