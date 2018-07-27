@@ -2043,11 +2043,11 @@ iframe {
   border-bottom: 1px solid #fff;
 }
 
-.table-shopping-cart .item-name{
+.table-shopping-cart .column-1 {
   width: 225px;
   padding-left: 50px;
 }
-.table-shopping-cart .column-2 {
+.table-shopping-cart .column-2 .item-name{
   width: 330px;
   padding-right: 30px;
 }
