@@ -1628,7 +1628,7 @@ column-2
 
 .block2-labelnew::before {
   background-color: #66a8a6;
-  content: 'lo nuevo';
+  content: 'nuevo';
 }
 
 /* ------------------------------------ */
