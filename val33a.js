@@ -30,7 +30,7 @@ class CampoNumerico {
 
     }.bind(this));
     this.nodo.addEventListener('input', function(evento) {
-      const cumpleFormatoEsperado = new RegExp(/^[0-9]+/).test(this.nodo.value);
+      /*const cumpleFormatoEsperado = new RegExp(/^[0-9]+/).test(this.nodo.value);*/
 
       if (!cumpleFormatoEsperado) {
         this.nodo.value = this.valor;
