@@ -4,7 +4,7 @@ class CampoNumerico {
     this.valor = '';
     this.empezarAEscucharEventos();
   }
-  /*empezarAEscucharEventos() {
+  empezarAEscucharEventos() {
     this.nodo.addEventListener('keydown', function(evento) {
       const teclaPresionada = evento.key;
       const teclaPresionadaEsUnNumero =
@@ -26,7 +26,7 @@ class CampoNumerico {
         evento.preventDefault(); 
       } else if (teclaPresionadaEsUnNumero) {
         this.valor += String(teclaPresionada);
-      }*/
+      }
 
     }.bind(this));
     this.nodo.addEventListener('input', function(evento) {
