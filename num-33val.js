@@ -7,3 +7,16 @@ $(document).ready(function () {
       }
     });
 });
+function qty(val){
+pqty = $('#atributoaletras1').val();
+if (val == "plus") {
+      var newVal = parseFloat(pqty) + 1;
+    } else {
+    if (pqty > 1) {
+      var newVal = parseFloat(pqty) - 1;
+    } else {
+      newVal = 1;
+    }
+}
+$('#atributoaletras1').val(newVal);
+}
