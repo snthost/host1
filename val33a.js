@@ -4,7 +4,7 @@ class CampoNumerico {
     this.valor = '';
     this.empezarAEscucharEventos();
   }
-  /*empezarAEscucharEventos() {
+  empezarAEscucharEventos() {
     this.nodo.addEventListener('keydown', function(evento) {
       const teclaPresionada = evento.key;
       const teclaPresionadaEsUnNumero =
@@ -30,7 +30,7 @@ class CampoNumerico {
 
     }.bind(this));
     this.nodo.addEventListener('input', function(evento) {
-      const cumpleFormatoEsperado = new RegExp(/^[0-9]+/).test(this.nodo.value);*/
+      const cumpleFormatoEsperado = new RegExp(/^[0-9]+/).test(this.nodo.value);
 
       if (!cumpleFormatoEsperado) {
         this.nodo.value = this.valor;
@@ -45,6 +45,7 @@ simpleCart.bind('beforeAdd', function (newitem) {
 simpleCart.each(function (cartitem) {
     if (cartitem.get("name") === newitem.get("name")) {
         cartitem.remove();
+      return false;
    }
 })
 });
