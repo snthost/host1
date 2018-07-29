@@ -15,8 +15,8 @@ class CampoNumerico {
         teclaPresionada != 'ArrowLeft' &&
         teclaPresionada != 'ArrowRight' &&
         teclaPresionada != 'Backspace' &&
-        teclaPresionada != 'Delete' &&
-        teclaPresionada != 'Enter' &&
+        /*teclaPresionada != 'Delete' &&*/
+        /*teclaPresionada != 'Enter' &&*/
         !teclaPresionadaEsUnNumero;
       const comienzaPorCero = 
         this.nodo.value.length === 1 &&
