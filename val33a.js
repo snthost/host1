@@ -1,9 +1,14 @@
-simpleCart.bind('beforeAdd', function (item) {
-    if (simpleCart.has(item)) {
-        item.remove();
-        return false;
+if( me.hasItem(newItem) ) {
+        var foundItem=me.hasItem(newItem);
+        if(parseInt(simpleCart.quantity) <= 9) {
+            foundItem.quantity= parseInt(foundItem.quantity,10) + parseInt(newItem.quantity,10);
+            newItem = foundItem;
+        } else if (parseInt(simpleCart.quantity) > 10) {
+            alert("The maximum number of items per order is 10. Please remove some items and try again.");
+        }
+    } else {
+        me.items[newItem.id] = newItem;
     }
-});
 
 /*class CampoNumerico {
   constructor(selector) {
