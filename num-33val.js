@@ -1,14 +1,5 @@
-$(document).ready(function () {
-  $('input#atributoaletras1')
-    .keypress(function (event) {
-      if (event.which < 46 || event.which > 57 || this.value.length === 2) {
-        document.getElementById("atributoaletras1").value = "";
-        return false;
-      }
-    });
-  
 function qty(val){
-pqty = $('#atributoaletras1').val();
+pqty = $('#prdqty').val();
 if (val == "plus") {
       var newVal = parseFloat(pqty) + 1;
     } else {
@@ -18,6 +9,14 @@ if (val == "plus") {
       newVal = 1;
     }
 }
-$('#atributoaletras1').val(newVal);
+$('#prdqty').val(newVal);
 }
-});
+$(document).ready(function () {
+  $('input#prdqty')
+    .keypress(function (event) {
+      if (this.value.length === 2) {
+        document.getElementById("prdqty").value = "";
+        return false;
+      }
+    });
+  });
