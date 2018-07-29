@@ -1,6 +1,7 @@
-simpleCart.each(function (cartitem) {
-    if (cartitem.get("name") === newitem.get("name")) {
-        cartitem.remove();
+simpleCart.bind('beforeAdd', function (item) {
+    if (simpleCart.has(item)) {
+        item.remove();
+        return false;
     }
 });
 
