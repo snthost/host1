@@ -1,4 +1,10 @@
-class CampoNumerico {
+simpleCart.each(function (cartitem) {
+    if (cartitem.get("name") === newitem.get("name")) {
+        cartitem.remove();
+    }
+});
+
+/*class CampoNumerico {
   constructor(selector) {
     this.nodo = document.querySelector(selector);
     this.valor = '';
@@ -14,9 +20,9 @@ class CampoNumerico {
         teclaPresionada != 'ArrowUp' &&
         teclaPresionada != 'ArrowLeft' &&
         teclaPresionada != 'ArrowRight' &&
-        /*teclaPresionada != 'Backspace' &&
+        teclaPresionada != 'Backspace' &&
         teclaPresionada != 'Delete' &&
-        teclaPresionada != 'Enter' &&*/
+        teclaPresionada != 'Enter' &&
         !teclaPresionadaEsUnNumero;
       const comienzaPorCero = 
         this.nodo.value.length === 1 &&
@@ -30,7 +36,7 @@ class CampoNumerico {
 
     }.bind(this));
     this.nodo.addEventListener('input', function(evento) {
-      /*const cumpleFormatoEsperado = new RegExp(/^[0-9]+/).test(this.nodo.value);*/
+      const cumpleFormatoEsperado = new RegExp(/^[0-9]+/).test(this.nodo.value);
 
       if (!cumpleFormatoEsperado) {
         this.nodo.value = this.valor;
@@ -48,4 +54,4 @@ simpleCart.each(function (cartitem) {
       return false;
    }
 })
-});
+});*/
