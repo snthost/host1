@@ -6,7 +6,7 @@ $(document).ready(function () {
         return false;
       }
     });
-});
+  
 function qty(val){
 pqty = $('#atributoaletras1').val();
 if (val == "plus") {
@@ -20,3 +20,4 @@ if (val == "plus") {
 }
 $('#atributoaletras1').val(newVal);
 }
+});
