@@ -49,7 +49,7 @@ else if(data.phone1.length<8){
                               alert("ingrese un numero telefonico valido");  
                                  return false;                           
                           }
-else if(data.comments1.length>60){
+else if(data.comments1.length>260){
                               alert("comentario  muy largo");  
                                  return false;                           
                           }
