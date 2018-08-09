@@ -7,7 +7,6 @@
  */
 .animsition,
 .animsition-overlay {
-  background:url(https://lh3.googleusercontent.com/__RbNgnZUBVq7PL1fZ0-ZpfIMnq2ywWJLI8vH8-MnWxGInT4EG-RfoQkYN8bhwp8jkhgJKolTMQprf0NfmMiWZZqUxLjF3ESDOITatQM=w352-h220);
   position: relative;
   opacity: 0;
   -webkit-animation-fill-mode: both;
