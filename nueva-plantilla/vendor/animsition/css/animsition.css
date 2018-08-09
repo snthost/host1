@@ -1,3 +1,10 @@
+/*!
+ * animsition v4.0.2
+ * A simple and easy jQuery plugin for CSS animated page transitions.
+ * http://blivesta.github.io/animsition
+ * License : MIT
+ * Author : blivesta (http://blivesta.com/)
+ */
 .animsition,
 .animsition-overlay {
   position: relative;
@@ -14,7 +21,7 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: #ddd;
+  background-color: #fff;
 }
 /* loading option */
 .animsition-loading,
@@ -31,7 +38,7 @@
 }
 
 .animsition-loading {
-  background-color: transparent;
+  background-color: #fff;
   border-top: 5px solid rgba(0, 0, 0, 0.2);
   border-right: 5px solid rgba(0, 0, 0, 0.2);
   border-bottom: 5px solid rgba(0, 0, 0, 0.2);
