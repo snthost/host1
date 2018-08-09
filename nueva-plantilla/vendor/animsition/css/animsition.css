@@ -21,7 +21,7 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-background:url(https://4.bp.blogspot.com/-Cc4q4NfWDdI/WjrjBvIJDpI/AAAAAAAABo8/If7y_8PWeF8NHsrz3hVUK2jJdm-45bgzwCK4BGAYYCw/s320/flechamas.png);
+  background-color: #ddd;  
 }
 /* loading option */
 .animsition-loading,
@@ -38,7 +38,7 @@ background:url(https://4.bp.blogspot.com/-Cc4q4NfWDdI/WjrjBvIJDpI/AAAAAAAABo8/If
 }
 
 .animsition-loading {
-  background-color:#000;
+background:url(https://4.bp.blogspot.com/-Cc4q4NfWDdI/WjrjBvIJDpI/AAAAAAAABo8/If7y_8PWeF8NHsrz3hVUK2jJdm-45bgzwCK4BGAYYCw/s320/flechamas.png);
   border-top: 5px solid rgba(0, 0, 0, 0.2);
   border-right: 5px solid rgba(0, 0, 0, 0.2);
   border-bottom: 5px solid rgba(0, 0, 0, 0.2);
