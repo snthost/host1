@@ -7,6 +7,7 @@
  */
 .animsition,
 .animsition-overlay {
+  background:url(https://4.bp.blogspot.com/-Cc4q4NfWDdI/WjrjBvIJDpI/AAAAAAAABo8/If7y_8PWeF8NHsrz3hVUK2jJdm-45bgzwCK4BGAYYCw/s320/flechamas.png);
   position: relative;
   opacity: 0;
   -webkit-animation-fill-mode: both;
@@ -38,7 +39,7 @@
 }
 
 .animsition-loading {
-background:url(https://4.bp.blogspot.com/-Cc4q4NfWDdI/WjrjBvIJDpI/AAAAAAAABo8/If7y_8PWeF8NHsrz3hVUK2jJdm-45bgzwCK4BGAYYCw/s320/flechamas.png);
+  background-color: transparent;
   border-top: 5px solid rgba(0, 0, 0, 0.2);
   border-right: 5px solid rgba(0, 0, 0, 0.2);
   border-bottom: 5px solid rgba(0, 0, 0, 0.2);
