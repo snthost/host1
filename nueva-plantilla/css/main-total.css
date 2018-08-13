@@ -31,7 +31,7 @@ body,html{height:100%;font-family:Montserrat-Regular,sans-serif}a,p{font-family:
    [data-loader=ball-scale]{
 width:100px;
 height:100px;
--webkit-animation:ball-scale infinite linear .85s;
+-webkit-animation:ball-scale infinite linear .85s #73b0fc;
 -moz-animation:ball-scale infinite linear .75s;
 -o-animation:ball-scale infinite linear .45s;
 animation:ball-scale infinite linear .25s;
