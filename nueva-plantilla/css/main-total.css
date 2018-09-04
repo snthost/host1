@@ -36,7 +36,7 @@ height:100px;
 -o-animation:ball-scale infinite linear .85s;
 animation:ball-scale infinite linear .85ss;
 border-radius:100%;
-background-color:#fff;
+background-color:#b22a2a;
 }
 @-webkit-keyframes ball-scale{0%{-webkit-transform:scale(.1);-ms-transform:scale(.1);-o-transform:scale(.1);transform:scale(.1);opacity:1}100%{-webkit-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);transform:scale(1);opacity:0}}@-moz-keyframes ball-scale{0%{-webkit-transform:scale(.1);-ms-transform:scale(.1);-o-transform:scale(.1);transform:scale(.1);opacity:1}100%{-webkit-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);transform:scale(1);opacity:0}}@-o-keyframes ball-scale{0%{-webkit-transform:scale(.1);-ms-transform:scale(.1);-o-transform:scale(.1);transform:scale(.1);opacity:1}100%{-webkit-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);transform:scale(1);opacity:0}}@keyframes ball-scale{0%{-webkit-transform:scale(.1);-ms-transform:scale(.1);-o-transform:scale(.1);transform:scale(.1);opacity:1}100%{-webkit-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);transform:scale(1);opacity:0}}
 
