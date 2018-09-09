@@ -87,7 +87,7 @@ display:none}
 .s-text5{font-size:15px;line-height:1}
 .s-text6,.s-text7{font-size:13px}
 .s-text007,.s-text6,.s-text7{line-height:1.8}
-.s-text007,.s-text7,.s-text8,.s-text8 a{color:#fff;font-family:Montserrat-Regular}
+.s-text007,.s-text7,.s-text8,.s-text8 a{color:#444;font-family:Montserrat-Regular}
 .s-text007{font-size:30px}.s-text8,.s-text8 a{font-size:18px;line-height:1.8}
 .s-text10,.s-text11,.s-text9{font-size:13px;line-height:1.8}
 .s-text9{font-family:Montserrat-Regular;color:#adadad}
@@ -99,7 +99,7 @@ display:none}
 .s-text14,.s-text15{font-size:13px;font-family:Montserrat-Regular}
 .s-text14{color:#fff;text-transform:uppercase}.s-text15{color:#666}
 .s-text16{font-family:Montserrat-Regular;font-size:15px;color:#fff}
-.s-text17,.s-text18{font-size:18px;color:#fff}
+.s-text17,.s-text18{font-size:18px;color:#444}
 .s-text17{font-family:Montserrat-Regular}
 .s-text18{font-family:Montserrat-Bold;line-height:1.5}
 .s-text19,.s-text20{font-family:Montserrat-Regular;color:#555}
@@ -114,7 +114,7 @@ display:none}
 .m-text4{font-family:Montserrat-Medium;color:#111;text-transform:uppercase}
 .m-text5,.m-text6{color:#444}/*color-de-letra*/
 .m-text5{font-family:Montserrat-Bold;text-transform:uppercase}
-.m-text6,.m-text7,.m-text8{font-family:Montserrat-Regular;font-size:18px;text-transform:uppercase}
+.m-text6,.m-text7,.m-text8{font-family:Montserrat-Regular;font-size:30px;text-transform:uppercase}
 .m-text7{color:red;text-decoration:line-through}
 .hov2:hover,.hov6:hover{text-decoration:underline}
 .m-text8{color:#fff}
@@ -128,10 +128,10 @@ display:none}
 .m-text14,.m-text15,.m-text16{line-height:1.5}
 .m-text14{font-family:Montserrat-Black;color:#333}
 .m-text15{font-family:Montserrat-Medium;color:#555}
-.m-text16,.m-text17{font-size:30px;color:#fff}
+.m-text16,.m-text17{font-size:30px;color:#444}
 .m-text17,.m-text18{font-family:Montserrat-Regular;line-height:1.2}
 .m-text18{font-size:16px;color:#666}
-.m-text19{font-family:Montserrat-Medium;font-size:30px;color:#fff;line-height:1.5}
+.m-text19{font-family:Montserrat-Medium;font-size:30px;color:#444;line-height:1.5}
 .m-text20{font-family:Montserrat-Bold;font-size:25px;color:#fff;line-height:1.5;text-transform:uppercase}
 .m-text21,.m-text22{font-size:20px;color:#fff;line-height:1.5}
 .m-text21{font-family:Montserrat-Regular}.m-text22{font-family:Montserrat-Bold}
