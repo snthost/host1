@@ -109,13 +109,14 @@ display:none}
 .s-text22{text-decoration:underline}
 .m-text1{font-family:Montserrat-Regular;font-size:18px;color:#fff;line-height:1.5}
 .m-text2,.m-text3{font-family:Montserrat-Regular;font-size:16px;text-transform:uppercase}
-.m-text2{color:#333}.m-text3{color:#fff}
+.m-text2{color:#333}.m-text3{color:#444}
 .m-text4,.m-text5{font-size:30px;line-height:1.2}
 .m-text4{font-family:Montserrat-Medium;color:#111;text-transform:uppercase}
 .m-text5,.m-text6{color:#444}/*color-de-letra*/
 .m-text5{font-family:Montserrat-Bold;text-transform:uppercase}
 .m-text6,.m-text7,.m-text8{font-family:Montserrat-Regular;font-size:18px;text-transform:uppercase}
-.m-text7{color:red;text-decoration:line-through}.hov2:hover,.hov6:hover{text-decoration:underline}
+.m-text7{color:red;text-decoration:line-through}
+.hov2:hover,.hov6:hover{text-decoration:underline}
 .m-text8{color:#fff}
 .m-text9{font-family:Montserrat-Bold;font-size:30px;color:#fff;line-height:1.2}
 .m-text10{font-family:Montserrat-Regular;font-size:18px;color:#555;line-height:1}
