@@ -53,7 +53,7 @@ opacity:.2;
 justify-content:center;
 align-items:center;
 z-index:1000;border-radius:4px;
-transition:all 2s;-webkit-transition:all .4.4.4s;-o-transition:all .4.4s;-moz-transition:all .4s}
+transition:all 2s;-webkit-transition:all .4.4.4s;-o-transition:all .4.4s;-moz-transition:all 1s}
 .symbol-btn-back-to-top{font-size:22px;color:#fff;line-height:1em}
 .btn-back-to-top:hover{opacity:1;cursor:pointer}
 @media (max-width:576px){
