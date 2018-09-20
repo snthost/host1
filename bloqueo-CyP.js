@@ -10,6 +10,6 @@ window.onload = function() {
   
   myInput.oncopy = function(e) {
     e.preventDefault();
-    alert("esta acción está prohibida");
+    alert("no puedes copiar este dato");
   }
 }
