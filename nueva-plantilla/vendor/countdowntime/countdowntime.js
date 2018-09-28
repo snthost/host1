@@ -1,1 +1,25 @@
-!function(e){"use strict";function t(e){var t=Date.parse(e)-Date.parse(new Date),a=Math.floor(t/1e3%60),s=Math.floor(t/1e3/60%60),r=Math.floor(t/36e5%24),o=Math.floor(t/864e5);return{total:t,days:o,hours:r,minutes:s,seconds:a}}function a(a,s){function r(){var e=t(s);o.html(e.days),n.html(("0"+e.hours).slice(-2)),l.html(("0"+e.minutes).slice(-2)),c.html(("0"+e.seconds).slice(-2)),e.total<=0&&clearInterval(u)}var o=e(".days"),n=e(".hours"),l=e(".minutes"),c=e(".seconds");r();var u=setInterval(r,1e3)}var s=new Date(Date.parse(new Date)+59616e5+468e5);a("clockdiv",s)}(jQuery);
+var end = new Date('09/27/2018 06:58 PM');
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var timer;
+    function showRemaining() {
+        var now = new Date();
+        var distance = end - now;
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById('countdown').innerHTML = ':( finalizado!!';
+         /*alert(":( la promocion ha finalizado!!!");*/
+            return;
+        }
+        var day = Math.floor(distance / days);
+        var hour = Math.floor((distance % days) / hours);
+        var minute = Math.floor((distance % hours) / minutes);
+        var second = Math.floor((distance % minutes) / seconds);
+        document.getElementById('countdown').innerHTML = day + ' dias, ';
+        document.getElementById('countdown').innerHTML += hour + ' horas, ';
+        document.getElementById('countdown').innerHTML += minute + ' minutos y ';
+        document.getElementById('countdown').innerHTML += second + ' segundos';
+    }
+    timer = setInterval(showRemaining, 1000);
