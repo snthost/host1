@@ -9,7 +9,7 @@ var end = new Date('09/27/2018 06:58 PM');
         var distance = end - now;
         if (distance < 0) {
             clearInterval(timer);
-            document.getElementById('countdown').innerHTML = ':( finalizado!!';
+            document.getElementById('countdown').innerHTML = ':( finish-load!!';
          /*alert(":( la promocion ha finalizado!!!");*/
             return;
         }
